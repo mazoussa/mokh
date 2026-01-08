@@ -2,14 +2,46 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta name="google-site-verification" content="uXRqZPvbBoh951GqDti5ajSq9O7mEO_vJLnZXde4OpM" />
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-  <title>mokh.ai — The Neural Core of Arabic AI</title>
-  <meta name="description" content="mokh.ai is a premium 4-letter .ai domain. A rare, pronounceable brand for AI infrastructure, neural systems, and deep tech in MENA." />
+  <title>MOKH.ai - Premium 4-Letter GenAI Brand Asset for Sale</title>
+  <meta name="description" content="Acquire MOKH.ai: The definitive 4-letter domain for Artificial Intelligence. Perfect for LLM infrastructure, Neural Networks, and Deep Tech brands. Open for acquisition." />
+  <meta name="keywords" content="AI domain for sale, premium domain, 4 letter domain, tech branding, artificial intelligence investment, mokh meaning" />
+  
   <meta name="theme-color" content="#000000" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://mokh.ai/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Invest in MOKH.ai - The Neural Core of AI" />
+  <meta property="og:description" content="A rare opportunity to acquire a category-defining 4-letter .ai domain. MOKH means Brain. Own the word." />
+  <meta property="og:url" content="https://mokh.ai/" />
+  <meta property="og:image" content="https://mokh.ai/og-image.jpg" /> <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "mokh.ai Premium Domain Name",
+    "image": "https://mokh.ai/logo.png",
+    "description": "Premium 4-letter .ai domain name suitable for Artificial Intelligence infrastructure and Deep Tech brands.",
+    "brand": {
+      "@type": "Brand",
+      "name": "MOKH"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://mokh.ai/#inquiry",
+      "priceCurrency": "USD",
+      "price": "Negotiable",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Domain Investor"
+      }
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1235,13 +1267,10 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
         </p>
 
         <form id="inquiryForm" name="inquiry" method="POST" class="form-grid" novalidate>
-          <!-- Web3Forms required: replace with your real access key -->
           <input type="hidden" name="access_key" value="76c55b79-0573-494e-a805-f3e1e089d894" />
 
-          <!-- Simple honeypot (bots fill it) -->
           <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; height:1px; width:1px; opacity:0;" aria-hidden="true">
 
-          <!-- Inline status (friendly error on failure) -->
           <div class="form-status" id="formStatus" role="status" aria-live="polite">
             <div class="icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></div>
             <div class="text" id="formStatusText">...</div>
@@ -1303,7 +1332,6 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
     </footer>
   </div>
 
-  <!-- Privacy Modal -->
   <div class="modal" id="privacyModal" aria-hidden="true">
     <div class="modal-bg" data-close="privacyModal"></div>
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
@@ -1324,7 +1352,6 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
     </div>
   </div>
 
-  <!-- Success Modal (Inquiry Received) -->
   <div class="modal" id="successModal" aria-hidden="true">
     <div class="modal-bg" data-close="successModal"></div>
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="successTitle">
@@ -1614,7 +1641,6 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
       const statusText = document.getElementById("formStatusText");
       const ndaPill = document.getElementById("ndaPill");
       
-
       function showStatus(type, msg) {
         if (!statusBox || !statusText) return;
         statusText.textContent = msg;
@@ -1642,8 +1668,6 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
       function isValidEmail(v) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
       }
-
-      
 
       if (form) {
         form.addEventListener("submit", async (e) => {
@@ -1678,18 +1702,10 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
 
           const payload = {
             access_key: accessKey,
-
-            // Optional but helpful metadata
             subject: `mokh.ai inquiry — ${name}${company ? " (" + company + ")" : ""}`,
             from_name: name,
-
-            // IMPORTANT: replyto must be the actual email value
             replyto: email,
-
-            // Optional: if your Web3Forms plan supports routing
-            // (If unsupported, Web3Forms will ignore it)
             to: "invest@mokh.ai",
-
             name,
             email,
             company,
@@ -1713,11 +1729,10 @@ means <span class="ar-inline">Brain</span>. The definitive identity for Neural N
               return;
             }
 
-            // Success UI: modal like screenshot
+            // Success UI
             if (ndaPill) ndaPill.style.display = ndaFirst ? "inline-flex" : "none";
             openModal("successModal");
 
-            // Clean up form + status
             form.reset();
             hideStatus();
           } catch (err) {

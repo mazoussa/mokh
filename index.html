@@ -60,12 +60,15 @@
 
   <script>
     (function () {
-      try {
-        const saved = localStorage.getItem("theme");
-        const preferred = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        document.documentElement.setAttribute("data-theme", saved || preferred);
-      } catch (e) {}
-    })();
+  try {
+    const saved = localStorage.getItem("theme");
+    // فرض المود المظلم كخيار افتراضي في حال عدم وجود خيار سابق
+    const themeToSet = saved === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", themeToSet);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+})();
   </script>
 
   <style>
@@ -1000,6 +1003,116 @@
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
     }
+    /* تصميم شريط ضمان النقل المرتب داخل إطار */
+/* Transfer Assurance - المظهر الجديد المستوحى من تفكير */
+.assurance-section {
+    margin: 60px 0 80px;
+}
+
+/* الإطار الخارجي (السكّة) مع تدرج لوني خفيف */
+.assurance-rail {
+    border-radius: 26px; /* --radius-lg */
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(34, 197, 94, 0.15));
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 18px 60px -22px rgba(0, 0, 0, 0.80);
+}
+
+.assurance-rail:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, #a78bfa, #22c55e);
+    box-shadow: 0 40px 80px -20px rgba(124, 58, 237, 0.3);
+}
+
+.assurance-inner {
+    background: rgba(10, 6, 24, 0.92); /* لون خلفية غامق واحترافي */
+    border-radius: 24px;
+    padding: 35px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* صندوق الأيقونة مع التوهج (Glow) الذي أعجبك */
+.assurance-icon-box {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    color: #a78bfa; /* اللون البنفسجي الفاتح */
+    font-size: 26px;
+    position: relative;
+    /* التوهج الأرجواني المميز */
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+    animation: shieldPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes shieldPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(167, 139, 250, 0.2); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(167, 139, 250, 0.4); }
+}
+
+.assurance-text h4 {
+    font-size: 1.6rem;
+    font-weight: 800; /* خط Outfit العريض */
+    margin-bottom: 8px;
+    color: #f1f5f9;
+    letter-spacing: -0.02em;
+    font-family: 'Outfit', sans-serif; /* التأكد من استخدام نفس الخط */
+}
+
+.assurance-text p {
+    color: #a6b0c3;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* زر Escrow الأخضر النيوني المطور */
+.btn-escrow-premium {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff !important;
+    padding: 16px 35px;
+    border-radius: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+}
+
+.btn-escrow-premium:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.6);
+}
+
+/* استجابة الموبايل */
+@media (max-width: 768px) {
+    .assurance-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .btn-escrow-premium {
+        width: 100%;
+        justify-content: center;
+    }
+}
   </style>
 </head>
 
@@ -1211,24 +1324,47 @@
     </section>
 
     <section class="ecosystem">
-      <div class="eco-inner">
-        <span class="eco-badge">Bundle Opportunity</span>
-        <h2 style="margin-top:15px; margin-bottom:10px;">The Complete Neural Stack</h2>
-        <p style="color:var(--text-muted);">Own the Engine and the Process in one acquisition.</p>
+  <div class="eco-inner">
+    <span class="eco-badge">Bundle Opportunity</span>
+    
+    <h2 style="margin-top:15px; margin-bottom:10px;">The Complete Neural Stack</h2>
+    <p>Own the Brain and the Reasoning Process in one acquisition.</p>
 
-        <div class="equation-container">
-          <span class="eq-item">mokh.ai</span>
-          <i class="fa-solid fa-plus" style="color:var(--accent-secondary);" aria-hidden="true"></i>
-          <a href="https://tafkir.ai" target="_blank" rel="noopener" class="eq-item highlight">tafkir.ai</a>
+    <div class="equation-container">
+      <span class="eq-item">mokh.ai</span>
+      
+      <i class="fa-solid fa-plus" style="color:var(--accent-secondary);"></i>
+      
+      <a href="https://tafkir.ai" target="_blank" class="eq-item highlight">tafkir.ai</a>
+    </div>
+
+    <p style="font-size:0.9rem; opacity:0.85; color:var(--text-muted);">
+      Ask for the bundle terms via the form. NDA available.
+    </p>
+  </div>
+</section>
+
+<section class="assurance-section reveal">
+  <div class="assurance-rail">
+    <div class="assurance-inner">
+      <div style="display: flex; align-items: center; gap: 25px;" class="mobile-stack">
+        <div class="assurance-icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
         </div>
-
-        <p style="font-size:0.9rem; opacity:0.85; color:var(--text-muted);">
-          Ask for the bundle terms via the form. NDA available.
-        </p>
+        <div class="assurance-text">
+          <h4>Secure Asset Transfer</h4>
+          <p>We utilize <strong>Escrow.com</strong> to guarantee a risk-free transaction. The funds are only released after the domain is safely in your control.</p>
+        </div>
       </div>
-    </section>
-
-    <section class="inquiry-section" id="inquiry">
+      <a href="https://www.escrow.com" target="_blank" rel="noopener" class="btn-escrow-premium">
+        <i class="fa-solid fa-lock"></i>
+        <span>Acquire via Escrow</span>
+      </a>
+    </div>
+  </div>
+</section>
+    
+        <section class="inquiry-section" id="inquiry">
       <div class="form-card">
         <h2 style="text-align:center; margin-bottom:10px;">Acquire This Asset</h2>
         <p style="text-align:center; color:var(--text-muted); margin-bottom:10px;">
@@ -1723,12 +1859,17 @@
       duration: 1200,
       distance: "10px",
       interval: 140,
-      viewFactor: 0.2,
+      viewFactor: 0.5,
       cleanup: true
    });
-
-
-      sr.reveal("#main-header", { origin: "top", distance: "10px", duration: 500, interval: 0 });
+sr.reveal(".transfer-assurance-bar", { 
+  origin: "bottom", 
+  distance: "30px", 
+  duration: 1500, 
+  delay: 300, 
+  viewFactor: 0.4 
+});
+      sr.reveal("#main-header", { origin: "top", distance: "30px", duration: 1200, interval: 0 });
       sr.reveal(".hero-label, .hero h1, .hero-tagline, .hero-cta-box", { origin: "bottom" });
 
       sr.reveal(".identity-header", { origin: "bottom" });

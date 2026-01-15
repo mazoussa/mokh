@@ -238,6 +238,11 @@
     @media (max-width: 600px) {
       header { top: 5px; padding: 8px 15px; }
       .brand-mark { height: 32px; } .brand-text { height: 24px; }
+
+      /* Fix: keep logos smaller on scroll (not larger) */
+      header.scrolled .brand-mark { height: 28px; }
+      header.scrolled .brand-text { height: 22px; }
+
       .acquisition-badge { padding: 0; width: 40px; justify-content: center; border-radius: 50%; }
       .acq-text { display: none; }
       .acq-icon { font-size: 0.8rem; margin: 0; }
@@ -1113,6 +1118,33 @@
         justify-content: center;
     }
 }
+.asset-signals{
+  margin: 28px auto 18px;
+  text-align: center;
+}
+
+.scarcity-line{
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-bottom: 12px;
+}
+
+.use-anchors{
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 13px;
+  opacity: .85;
+}
+
+.use-anchors span{
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+}
+
   </style>
 </head>
 
@@ -1140,26 +1172,37 @@
     </header>
 
     <section class="hero">
-      <span class="hero-label">High-Value AI Asset</span>
+      <span class="hero-label">Institutional AI Identity</span>
 
       <h1>
         <img src="logo.png" alt="MOKH" class="hero-logo-large" loading="eager" width="500" height="140" />
       </h1>
 
       <p class="hero-tagline">
-        The Biological Core of Artificial Intelligence.<br>
+        A Neural Identity for AI Infrastructure.<br>
         <span class="ar-inline" lang="ar" dir="rtl">مخ</span>
         means <span class="ar-inline">Brain</span>. The definitive identity for Neural Networks.
       </p>
 
       <div class="hero-cta-box">
-        <a href="#inquiry" class="btn-primary">Secure This Asset</a>
+        <a href="#inquiry" class="btn-primary">Initiate Acquisition Review</a>
 
         <div class="tech-icons" aria-hidden="true">
           <i class="fa-solid fa-microchip"></i>
           <i class="fa-solid fa-brain"></i>
           <i class="fa-solid fa-network-wired"></i>
         </div>
+<div class="asset-signals">
+  <div class="scarcity-line">
+    Four-letter .ai · Single-owner · Transfer-ready
+  </div>
+
+  <div class="use-anchors">
+    <span>AI Infrastructure</span>
+    <span>Cognitive Systems</span>
+    <span>Agentic Tooling</span>
+  </div>
+</div>
 
         <div class="trust-row">
           <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Escrow supported</span>
@@ -1293,7 +1336,7 @@
           <div class="steps-grid">
             <div class="step-card">
               <div class="step-icon"><i class="fa-solid fa-file-lines"></i></div>
-              <div class="step-title">Submit Inquiry</div>
+              <div class="step-title">Submit Acquisition Request</div>
               <p class="step-desc">Express interest in mokh.ai or the bundle via the private form.</p>
               <div class="step-mini"><i class="fa-solid fa-lock"></i> Confidential intake</div>
             </div>
@@ -1366,9 +1409,9 @@
     
         <section class="inquiry-section" id="inquiry">
       <div class="form-card">
-        <h2 style="text-align:center; margin-bottom:10px;">Acquire This Asset</h2>
+        <h2 style="text-align:center; margin-bottom:10px;">Institutional Acquisition</h2>
         <p style="text-align:center; color:var(--text-muted); margin-bottom:10px;">
-          Direct negotiation with strict confidentiality.
+          Private review for aligned institutional buyers only.
         </p>
 
         <form id="inquiryForm" name="inquiry" method="POST" class="form-grid" novalidate>
@@ -1409,7 +1452,7 @@
           </div>
 
           <div class="form-group full" style="margin-top:10px;">
-            <button id="submitBtn" type="submit" class="submit-btn">Submit Inquiry</button>
+            <button id="submitBtn" type="submit" class="submit-btn">Submit Acquisition Request</button>
           </div>
 
           <noscript>
@@ -1765,7 +1808,7 @@
       function setSending(isSending) {
         if (!submitBtn) return;
         submitBtn.disabled = isSending;
-        submitBtn.textContent = isSending ? "Sending..." : "Submit Inquiry";
+        submitBtn.textContent = isSending ? "Sending..." : "Submit Acquisition Request";
       }
 
       function isValidEmail(v) {

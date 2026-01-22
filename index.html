@@ -55,14 +55,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <script>
     (function () {
   try {
     const saved = localStorage.getItem("theme");
-    // 
+    // فرض المود المظلم كخيار افتراضي في حال عدم وجود خيار سابق
     const themeToSet = saved === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", themeToSet);
   } catch (e) {
@@ -242,27 +242,44 @@
 
     @media (max-width: 600px) {
       header { top: 5px; padding: 8px 15px; }
-      .brand-mark { height: 40px; } .brand-text { height: 50px; }
+      .brand-mark { height: 32px; } .brand-text { height: 24px; }
 
       /* Fix: keep logos smaller on scroll (not larger) */
-      header.scrolled .brand-mark { height: 30px; }
-      header.scrolled .brand-text { height: 40px; }
+      header.scrolled .brand-mark { height: 28px; }
+      header.scrolled .brand-text { height: 22px; }
 
       .acquisition-badge { padding: 0; width: 40px; justify-content: center; border-radius: 50%; }
       .acq-text { display: none; }
       .acq-icon { font-size: 0.8rem; margin: 0; }
     }
 
-    /* --- FIXED HERO SECTION --- */
+    /*===== HERO — Quiet Institutional / Open Space =====*/
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
+      padding-top: clamp(28px, 6vh, 56px);
+      position: relative;
       text-align: center;
-      padding: 60px 0 60px;
       margin-top: 20px;
+    }
+
+    /* Open glass aura instead of boxed container */
+    .hero-box {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: clamp(28px, 4vw, 42px) clamp(20px, 4vw, 44px);
+      padding-top: 20px;
+      padding-bottom: 40px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,.035) 0%,
+        rgba(0,0,0,0) 70%
+      );
+      border: none;
+      box-shadow: none;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      border-radius: clamp(20px, 3vw, 32px);
+      position: relative;
+      overflow: visible;
     }
 
     .hero-label {
@@ -272,86 +289,66 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       padding: 6px 14px;
       border: 1px solid var(--glass-border);
-      border-radius: 99px;
+      border-radius: 999px;
       background: var(--glass-bg);
     }
 
-    .hero h1 {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 40px 60px;
-      margin-bottom: 30px;
-
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-
-      border-radius: 32px;
-
-      border: 1px solid var(--accent-primary);
-      box-shadow:
-        0 30px 70px -15px rgba(124, 58, 237, 0.25),
-        inset 0 0 50px -5px var(--accent-glow);
-
+    /* Wordmark (replaces logo image) */
+    .hero-wordmark{
+      font-family: "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: clamp(56px, 12vw, 160px);
+      letter-spacing: -0.045em;
+      line-height: .92;
+      margin: 0 0 18px;
+      color: var(--text-main);
+      text-shadow: 0 0 30px rgba(0,0,0,.55);
       position: relative;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: inline-block;
     }
 
-    .hero h1:hover {
-      transform: translateY(-6px);
-      box-shadow:
-        0 40px 80px -15px rgba(124, 58, 237, 0.35),
-        inset 0 0 60px -5px var(--accent-glow);
+    /* Subtle institutional tint (dark mode only) */
+    [data-theme="dark"] .hero-wordmark{
+      color: rgba(240, 246, 255, .92);
+      text-shadow: 0 0 28px rgba(0,0,0,.75);
     }
 
-    .hero h1::before {
-      content: '';
+    .hero-wordmark .dot{ opacity: .95; }
+
+    .brain-mark{
       position: absolute;
-      top: 0; left: -150%;
-      width: 100%; height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.08),
-        transparent
-      );
-      transform: skewX(-25deg);
-      transition: 0.6s;
+      top: -0.28em;
+      right: -0.42em;
+      opacity: .7;
+      transform: scale(.62);
+      transform-origin: center;
       pointer-events: none;
     }
-    .hero h1:hover::before {
-      left: 150%;
-      transition: 0.8s ease-in-out;
+
+    .brain-icon{
+      display:block;
+      width: 56px;
+      height: 56px;
     }
 
-    .hero-logo-large {
-      max-width: 100%;
-      width: 500px;
-      height: auto;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
-      transition: 0.3s;
+    @media (max-width: 640px){
+      .brain-mark{ display:none; }
     }
 
-    [data-theme="dark"] .hero-logo-large {
-      filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255,255,255,0.1));
-    }
-
+    /* Hero paragraph (short, confident) */
     .hero-tagline {
       font-size: 1.25rem;
       color: var(--text-muted);
       max-width: 720px;
       margin: 0 auto 30px;
       line-height: 1.65;
+      opacity: .9;
     }
     .hero-tagline strong { color: var(--text-main); font-weight: 800; }
-
-    .ar-inline {
+.ar-inline {
       direction: rtl;
       unicode-bidi: isolate;
       font-weight: 900;
@@ -1150,7 +1147,237 @@
   background: rgba(255,255,255,.04);
 }
 
-  </style>
+  
+
+/* ===== HERO ORDERING — Institutional Rhythm (Override) ===== */
+.hero { padding-top: clamp(28px, 6vh, 64px); }
+
+.hero-box{
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 3.2vw, 42px) clamp(18px, 3vw, 44px);
+  background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.045) 0%, rgba(0,0,0,0) 70%);
+  border: none;
+  box-shadow: none;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: clamp(20px, 3vw, 32px);
+}
+
+.hero-label{
+  margin-bottom: 18px;
+  padding: 7px 14px;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+}
+
+.hero-wordmark{
+  font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
+  font-weight: 800;
+  font-size: clamp(52px, 11vw, 136px);
+  letter-spacing: -0.04em;
+  line-height: .9;
+  margin: 0 auto 14px;
+  text-align: center;
+  color: var(--hero-wordmark, var(--text-main));
+  text-shadow: 0 0 30px rgba(0,0,0,.55);
+}
+
+.hero-wordmark .dot{ opacity: .9; }
+
+.hero-tagline{
+  max-width: 720px;
+  margin: 0 auto 18px;
+  font-size: clamp(1.02rem, 2.2vw, 1.18rem);
+  line-height: 1.65;
+  opacity: .92;
+}
+
+.hero-cta-box{ gap: 14px; }
+
+.btn-primary{
+  padding: 15px 34px;
+  font-size: 1.02rem;
+}
+
+.tech-icons{ margin-top: 6px; gap: 16px; opacity: .7; }
+
+.asset-signals{ margin: 18px auto 10px; }
+.scarcity-line{ margin-bottom: 10px; opacity: .78; }
+.use-anchors{ gap: 10px; flex-wrap: wrap; }
+
+.trust-row{
+  margin-top: 16px;
+  opacity: .85;
+  transition: opacity .25s ease;
+}
+.trust-row:hover{ opacity: 1; }
+
+/* Theme-linked wordmark color */
+:root{ --hero-wordmark: #0f172a; }
+[data-theme="dark"]{ --hero-wordmark: rgba(248,250,252,.96); }
+
+/* Mobile tightening */
+@media (max-width: 640px){
+  .hero-box{ padding: 22px 16px; }
+  .hero-label{ margin-bottom: 14px; }
+  .hero-wordmark{ font-size: clamp(44px, 15vw, 84px); letter-spacing: -0.035em; }
+  .btn-primary{ width: 100%; max-width: 420px; text-align: center; }
+}
+.hero-tagline .line{
+  display: block;
+  margin-top: 6px;
+}
+
+.hero-tagline .line:first-child{
+  margin-top: 0;
+}
+.brand-wordmark{
+  font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.brand-wordmark .dot{
+  opacity: .9;
+}
+
+/* عند scroll (الهيدر المصغّر) */
+header.scrolled .brand-wordmark{
+  font-size: 1.15rem;
+}
+
+/* ثيم داكن */
+[data-theme="dark"] .brand-wordmark{
+  color: #f8fafc;
+}
+
+
+
+/* ===== Gnosis-like Touch — Editorial Authority (Override) ===== */
+.hero-kicker{
+  margin: 0 auto 18px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.4px;
+  color: rgba(242,208,115,.88);
+  opacity: .95;
+}
+.hero-kicker span{ opacity: .82; }
+
+.hero-label{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.hero-wordmark{
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.hero-axiom{
+  margin: 12px auto 20px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.6px;
+  color: rgba(242,208,115,.78);
+}
+
+/* CTA: less SaaS, more mandate */
+.btn-primary{
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 18px 48px rgba(0,0,0,.45) !important;
+}
+.btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(167,139,250,0.35), 0 22px 60px rgba(0,0,0,.55) !important;
+}
+
+/* Slight editorial hierarchy for tagline lines */
+.hero-tagline .line:last-child{ opacity: .82; }
+
+/* Mobile: tighten kicker */
+@media (max-width: 640px){
+  .hero-kicker{ font-size: 0.88rem; margin-bottom: 14px; }
+  .hero-axiom{ font-size: 0.82rem; margin-bottom: 18px; }
+}
+
+
+
+/* Kicker subtle fade on scroll */
+.hero-kicker{
+  transition: opacity .35s ease, transform .35s ease;
+  will-change: opacity, transform;
+}
+.hero-kicker-sub{
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  opacity: 0.75;
+  color: rgba(248,250,252,.85);
+}
+.hero-kicker.is-faded{
+  opacity: 0.65;
+  transform: translateY(-4px) scale(0.97);
+}
+@media(max-width:640px){
+  .hero-kicker-sub{ font-size: 0.82rem; }
+}
+
+
+
+/* ===== Production Polish — Light/Dark balance (Override) ===== */
+/* Kicker: quieter in light, slightly more breathing room */
+[data-theme="light"] .hero-kicker{
+  margin-bottom: 26px;
+  color: rgba(160, 140, 105, .72);
+}
+
+/* Wordmark shadow: softer in light (editorial, not poster) */
+[data-theme="light"] .hero-wordmark{
+  text-shadow: 0 10px 30px rgba(15,23,42,.12);
+}
+
+/* Space rhythm */
+.hero-wordmark{ margin-bottom: 22px; }
+
+/* CTA: decisive in light, mandate-grade */
+[data-theme="light"] .btn-primary{
+  background: rgba(15,23,42,.92) !important;
+  color: #ffffff !important;
+  border-color: rgba(15,23,42,.92) !important;
+  box-shadow: 0 18px 40px rgba(15,23,42,.25) !important;
+}
+[data-theme="light"] .btn-primary:hover{
+  background: rgba(15,23,42,.98) !important;
+  box-shadow: 0 22px 54px rgba(15,23,42,.32) !important;
+}
+
+/* CTA text clarity safeguard (if any opacity rules exist) */
+.btn-primary{ opacity: 1; }
+
+/* Subline readability in light */
+[data-theme="light"] .hero-kicker-sub{
+  color: rgba(15,23,42,.72);
+  opacity: 0.88;
+}
+
+</style>
 </head>
 
 <body>
@@ -1161,7 +1388,10 @@
     <header id="main-header">
       <div class="brand-stack" id="scrollTopBtn">
         <img src="favicon.png" alt="M" class="brand-mark" width="42" height="42" loading="eager">
-        <img src="logo.png" alt="mokh.ai" class="brand-text" width="180" height="34" loading="eager">
+        <div class="brand-wordmark">
+  mokh<span class="dot">.</span>ai
+</div>
+
       </div>
 
       <div class="header-controls">
@@ -1177,20 +1407,32 @@
     </header>
 
     <section class="hero">
-      <span class="hero-label">Institutional AI Identity</span>
+      <div class="hero-box">
+      
 
-      <h1>
-        <img src="logo.png" alt="MOKH" class="hero-logo-large" loading="eager" width="500" height="140" />
-      </h1>
+      <div class="hero-kicker">
+    / moḵ / <span>cognition, signal, identity.</span>
+    <span class="hero-kicker-sub">An institutional mark for neural infrastructure.</span>
+  </div>
+
+<h1 class="hero-wordmark">
+        mokh<span class="dot">.</span>ai</h1>
 
       <p class="hero-tagline">
-        A Neural Identity for AI Infrastructure.<br>
-        <span class="ar-inline" lang="ar" dir="rtl">مخ</span>
-        means <span class="ar-inline">Brain</span>. The definitive identity for Neural Networks.
-      </p>
+  <span class="line">
+    A Neural Identity for AI Infrastructure.
+  </span>
+  <span class="line">
+    <span class="ar-inline" lang="ar" dir="rtl">مخ</span> means <span class="ar-inline">Brain</span>.
+  </span>
+  <span class="line">
+    The definitive identity for Neural Networks.
+  </span>
+
+
 
       <div class="hero-cta-box">
-        <a href="#inquiry" class="btn-primary">Initiate Acquisition Review</a>
+        <a href="#inquiry" class="btn-primary">Request Acquisition Mandate</a>
 
         <div class="tech-icons" aria-hidden="true">
           <i class="fa-solid fa-microchip"></i>
@@ -1214,7 +1456,8 @@
           <span class="trust-pill"><i class="fa-solid fa-lock"></i> Confidential negotiation</span>
         </div>
       </div>
-    </section>
+        </div>
+</section>
 
     <section class="identity-section" id="meaning">
       <div class="identity-header">
@@ -1938,5 +2181,24 @@ sr.reveal(".transfer-assurance-bar", {
       sr.reveal("footer", { origin: "bottom", distance: "10px", duration: 500 });
     })();
   </script>
+
+
+<script>
+  (function () {
+    const kicker = document.querySelector(".hero-kicker");
+    if (!kicker) return;
+
+    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function onScroll() {
+      if (prefersReduced) return;
+      kicker.classList.toggle("is-faded", window.scrollY > 80);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
 </body>
 </html>

@@ -62,7 +62,7 @@
     (function () {
   try {
     const saved = localStorage.getItem("theme");
-    // فرض المود المظلم كخيار افتراضي في حال عدم وجود خيار سابق
+    // 
     const themeToSet = saved === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", themeToSet);
   } catch (e) {
@@ -70,6 +70,11 @@
   }
 })();
   </script>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 
   <style>
     :root {
@@ -237,11 +242,11 @@
 
     @media (max-width: 600px) {
       header { top: 5px; padding: 8px 15px; }
-      .brand-mark { height: 32px; } .brand-text { height: 24px; }
+      .brand-mark { height: 40px; } .brand-text { height: 50px; }
 
       /* Fix: keep logos smaller on scroll (not larger) */
-      header.scrolled .brand-mark { height: 28px; }
-      header.scrolled .brand-text { height: 22px; }
+      header.scrolled .brand-mark { height: 30px; }
+      header.scrolled .brand-text { height: 40px; }
 
       .acquisition-badge { padding: 0; width: 40px; justify-content: center; border-radius: 50%; }
       .acq-text { display: none; }

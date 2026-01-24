@@ -157,7 +157,7 @@
       flex-direction: column;
     }
 
-    /* --- UPDATED SMOOTH HEADER --- */
+    /* --- NEW HEADER STYLES (FROM YOUR REQUEST) --- */
     header {
       position: sticky;
       top: 10px;
@@ -166,50 +166,89 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
       background: transparent;
       border: 1px solid transparent;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
       box-shadow: none;
-      padding: 15px 24px; /* Increased start padding */
-      border-radius: 999px;
-      
-      /* Smooth cubic-bezier transition with longer duration */
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: background, padding, border-color;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     header.scrolled {
       background: var(--glass-bg);
-      backdrop-filter: blur(var(--blur-strength));
-      -webkit-backdrop-filter: blur(var(--blur-strength));
       border-color: var(--glass-border);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
-      padding: 8px 24px; /* Reduced padding on scroll */
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px -12px rgba(0,0,0,0.25);
     }
 
-    .brand-stack { display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.25s; }
+    .brand-stack {
+      /* Matches .brand in your request */
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      user-select: none;
+      cursor: pointer;
+    }
 
-    /* --- UPDATED LOGO ANIMATION --- */
     .brand-logo-img {
-      height: 42px; /* Slightly larger start */
-      width: auto;
+      /* Matches .brand-icon in your request */
+      height: 34px;
+      width: 34px;
+      display: block;
+      transition: all 0.25s ease;
+      flex: 0 0 auto;
       object-fit: contain;
-      transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-      will-change: height;
     }
+
+    .brand-wordmark {
+      /* Matches .brand-text behavior but for text */
+      font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: var(--text-main);
+      display: block;
+      transition: all 0.25s ease;
+    }
+    .brand-wordmark .dot { opacity: .9; color: var(--accent-secondary); }
+
+    /* Scrolled States */
     header.scrolled .brand-logo-img {
-      height: 28px; /* Smooth scale down */
+      height: 30px;
+      width: 30px;
     }
-    /* Auto-invert and Hover Glow */
+    header.scrolled .brand-wordmark {
+      /* Scaling text down slightly on scroll */
+      font-size: 1.15rem;
+    }
+
+    /* Dark Mode Glow Effect (Added from your request) */
     [data-theme="dark"] .brand-logo-img {
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(167, 139, 250, 0.35));
     }
-    .brand-stack:hover .brand-logo-img {
-      filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(124, 58, 237, 0.8));
+    [data-theme="dark"] .brand-wordmark {
+      color: #f8fafc;
+      /* Optional: Add slight glow to text too if desired, otherwise remove filter */
+      filter: drop-shadow(0 2px 6px rgba(167, 139, 250, 0.15));
+    }
+
+    .header-controls {
+      /* Matches .header-right */
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
-    .header-controls { display: flex; align-items: center; gap: 12px; }
+    /* Hover Effect */
+    .brand-stack:hover .brand-logo-img {
+       transform: scale(1.05);
+    }
 
     .theme-btn {
       width: 40px; height: 40px;
@@ -260,7 +299,7 @@
       .acq-icon { font-size: 0.8rem; margin: 0; }
     }
 
-    /*===== HERO (UPDATED BOX) =====*/
+    /*===== HERO =====*/
     .hero {
       padding-top: clamp(28px, 6vh, 64px);
       position: relative;
@@ -272,12 +311,9 @@
       width: min(1080px, 100%);
       margin: 0 auto;
       padding: clamp(22px, 3.2vw, 42px) clamp(18px, 3vw, 44px);
-      
-      /* Soft Gradient instead of Blur for smooth blending */
       background: radial-gradient(circle at 50% 40%, rgba(124, 58, 237, 0.08) 0%, transparent 60%); 
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-
       border: none;
       box-shadow: none;
       border-radius: clamp(20px, 3vw, 32px);
@@ -378,21 +414,6 @@
     .trust-pill { display: inline-flex; gap: 6px; align-items: center; padding: 0; background: transparent; border: none; }
     .trust-pill i { color: var(--accent-secondary); }
     .trust-pill:first-child i { color: #22c55e; }
-
-    /* Brand Wordmark in Header */
-    .brand-wordmark{
-      font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
-      font-weight: 900;
-      font-size: 1.35rem;
-      letter-spacing: -0.035em;
-      line-height: 1;
-      color: var(--text-main);
-      cursor: pointer;
-      transition: transform .25s ease, opacity .25s ease;
-    }
-    .brand-wordmark .dot{ opacity: .9; color: var(--accent-secondary); }
-    header.scrolled .brand-wordmark{ font-size: 1.15rem; }
-    [data-theme="dark"] .brand-wordmark{ color: #f8fafc; }
 
     /* Identity Section */
     .identity-section { margin: 80px 0; position: relative; }
@@ -623,7 +644,7 @@
       .context-inner { padding: 36px 18px; }
     }
 
-    /* Steps Section (Updated) */
+    /* Steps Section */
     .steps-section { margin: 0 0 80px; position: relative; }
     .steps-header { text-align: center; margin-bottom: 28px; }
     .steps-title {
@@ -654,7 +675,6 @@
 
     .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 
-    /* Updated Card Layout for Alignment */
     .step-card {
       position: relative;
       padding: 22px 18px;
@@ -683,7 +703,6 @@
     }
     .step-icon i { font-size: 1.2rem; color: var(--text-main); opacity: 0.9; }
     
-    /* Hover Effects */
     .step-card:hover .step-icon {
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
@@ -694,13 +713,13 @@
       transition: color 0.3s ease;
     }
 
-    /* Floating Arrows (Desktop) */
+    /* Floating Arrows (Desktop Only) */
     @media (min-width: 981px) {
       .step-card:not(:last-child)::after {
         content: "\f105"; 
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
-        display: block; /* Override default hidden */
+        display: block;
         position: absolute;
         top: 30px;
         right: -15px;
@@ -730,8 +749,6 @@
       max-width: 260px;
       margin: 0 auto;
     }
-
-    /* Pushes badge to bottom */
     .step-mini {
       margin-top: auto; 
       display: inline-flex;
@@ -747,16 +764,25 @@
     .step-mini i { color: var(--accent-secondary); }
 
     /* =========================================
-       NEW ECOSYSTEM DESIGN: Digital Fusion
+       NEW ECOSYSTEM DESIGN
        ========================================= */
     .ecosystem-new {
       position: relative;
-      margin: 100px 0;
-      padding: 40px 20px;
+      max-width: 1080px; 
+      margin: 100px auto; 
+      
+      padding: 60px 30px; 
       text-align: center;
-      background: transparent;
+
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+      
+    
+
+      border-radius: 40px; 
+      
       border: none;
       box-shadow: none;
+      backdrop-filter: none;
     }
 
     .eco-spotlight {
@@ -887,7 +913,7 @@
       opacity: 0.6;
     }
 
-    /* Assurance Section (Updated) */
+    /* Assurance Section */
     .assurance-section { margin: 60px 0 80px; }
     .assurance-rail {
       border-radius: 26px;
@@ -1064,6 +1090,7 @@
       .assurance-inner { flex-direction: column; text-align: center; padding: 30px 20px; }
       .btn-escrow-premium { width: 100%; justify-content: center; }
       
+      /* --- FIXED MOBILE VALUE GRID --- */
       .value-grid {
         display: flex !important;
         flex-direction: row !important;
@@ -1073,24 +1100,30 @@
         justify-content: flex-start !important;
         gap: 15px !important;
         padding: 25px 20px !important;
+        padding-right: 20px !important; /* Critical for last item visibility */
+        
         background: none !important;
         backdrop-filter: none !important;
+        
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
       }
       .value-grid::-webkit-scrollbar { display: none; }
-      .value-grid::before, .value-grid::after { display: none !important; }
+      
+      /* Force spacer at the end */
       .value-grid::after {
         content: "" !important;
         display: block !important;
+        flex: 0 0 20px !important;
+        width: 20px !important;
         min-width: 20px !important;
-        height: 1px !important;
-        position: static !important;
       }
+
       .value-item {
-        flex: 0 0 80% !important;
-        min-width: 80% !important;
+        flex: 0 0 85% !important; /* Adjusted to 85% to peek next item better */
+        min-width: 85% !important;
         scroll-snap-align: center;
+        
         background: none;
         border: none;
         border-radius: 20px;

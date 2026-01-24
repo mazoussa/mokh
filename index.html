@@ -6,7 +6,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-  <!-- Icons -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -14,8 +13,8 @@
   <meta name="apple-mobile-web-app-title" content="mokh.ai" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <title>MOKH.ai - Premium 4-Letter GenAI Brand Asset for Sale</title>
-  <meta name="description" content="Acquire MOKH.ai: The definitive 4-letter domain for Artificial Intelligence. Perfect for LLM infrastructure, Neural Networks, and Deep Tech brands. Open for acquisition." />
+  <title>mokh.ai — Neural Identity for AI Infrastructure</title>
+  <meta name="description" content="mokh.ai is a rare four-letter AI identity rooted in the concept of the brain. Designed for neural infrastructure, cognitive systems, and deep technology platforms." />
   <meta name="keywords" content="AI domain for sale, premium domain, 4 letter domain, tech branding, artificial intelligence investment, mokh meaning" />
 
   <meta name="theme-color" content="#000000" />
@@ -62,7 +61,6 @@
     (function () {
   try {
     const saved = localStorage.getItem("theme");
-    // فرض المود المظلم كخيار افتراضي في حال عدم وجود خيار سابق
     const themeToSet = saved === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", themeToSet);
   } catch (e) {
@@ -70,7 +68,6 @@
   }
 })();
   </script>
-<!-- Vercel Web Analytics -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
@@ -187,15 +184,23 @@
       padding: 10px 24px;
     }
 
-    .brand-stack { display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.25s; }
-    .brand-mark { height: 42px; width: auto; transition: 0.25s; }
-    .brand-text { height: 45px; width: auto; transition: 0.25s; margin-top: 4px; }
-    header.scrolled .brand-mark { height: 34px; }
-    header.scrolled .brand-text { height: 38px; }
+    .brand-stack { display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.25s; }
 
-    [data-theme="dark"] .brand-mark,
-    [data-theme="dark"] .brand-text { filter: brightness(0) invert(1); }
-
+    /* --- NEW LOGO IMG STYLE --- */
+    .brand-logo-img {
+      height: 38px;
+      width: auto;
+      transition: 0.25s ease;
+      object-fit: contain;
+    }
+    header.scrolled .brand-logo-img {
+      height: 30px;
+    }
+    /* Auto-invert if it's a black logo on dark theme */
+    [data-theme="dark"] .brand-logo-img {
+      filter: brightness(0) invert(1);
+    }
+    
     .header-controls { display: flex; align-items: center; gap: 12px; }
 
     .theme-btn {
@@ -242,37 +247,24 @@
 
     @media (max-width: 600px) {
       header { top: 5px; padding: 8px 15px; }
-      .brand-mark { height: 32px; } .brand-text { height: 24px; }
-
-      /* Fix: keep logos smaller on scroll (not larger) */
-      header.scrolled .brand-mark { height: 28px; }
-      header.scrolled .brand-text { height: 22px; }
-
       .acquisition-badge { padding: 0; width: 40px; justify-content: center; border-radius: 50%; }
       .acq-text { display: none; }
       .acq-icon { font-size: 0.8rem; margin: 0; }
     }
 
-    /*===== HERO — Quiet Institutional / Open Space =====*/
+    /*===== HERO =====*/
     .hero {
-      padding-top: clamp(28px, 6vh, 56px);
+      padding-top: clamp(28px, 6vh, 64px);
       position: relative;
       text-align: center;
       margin-top: 20px;
     }
 
-    /* Open glass aura instead of boxed container */
     .hero-box {
-      width: min(1180px, 100%);
+      width: min(1080px, 100%);
       margin: 0 auto;
-      padding: clamp(28px, 4vw, 42px) clamp(20px, 4vw, 44px);
-      padding-top: 20px;
-      padding-bottom: 40px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,.035) 0%,
-        rgba(0,0,0,0) 70%
-      );
+      padding: clamp(22px, 3.2vw, 42px) clamp(18px, 3vw, 44px);
+      background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.045) 0%, rgba(0,0,0,0) 70%);
       border: none;
       box-shadow: none;
       backdrop-filter: blur(2px);
@@ -289,66 +281,41 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 22px;
-      padding: 6px 14px;
+      margin-bottom: 18px;
+      padding: 7px 14px;
       border: 1px solid var(--glass-border);
       border-radius: 999px;
       background: var(--glass-bg);
     }
 
-    /* Wordmark (replaces logo image) */
     .hero-wordmark{
       font-family: "Manrope", "Inter", system-ui, -apple-system, sans-serif;
-      font-weight: 800;
-      font-size: clamp(56px, 12vw, 160px);
-      letter-spacing: -0.045em;
-      line-height: .92;
-      margin: 0 0 18px;
+      font-weight: 900;
+      font-size: clamp(52px, 11vw, 136px);
+      letter-spacing: -0.04em;
+      line-height: .9;
+      margin: 0 auto 14px;
+      text-align: center;
       color: var(--text-main);
       text-shadow: 0 0 30px rgba(0,0,0,.55);
-      position: relative;
-      display: inline-block;
     }
+    [data-theme="dark"] .hero-wordmark{ color: rgba(248,250,252,.96); }
 
-    /* Subtle institutional tint (dark mode only) */
-    [data-theme="dark"] .hero-wordmark{
-      color: rgba(240, 246, 255, .92);
-      text-shadow: 0 0 28px rgba(0,0,0,.75);
-    }
+    .hero-wordmark .dot{ opacity: .9; color: var(--accent-secondary); }
 
-    .hero-wordmark .dot{ opacity: .95; }
-
-    .brain-mark{
-      position: absolute;
-      top: -0.28em;
-      right: -0.42em;
-      opacity: .7;
-      transform: scale(.62);
-      transform-origin: center;
-      pointer-events: none;
-    }
-
-    .brain-icon{
-      display:block;
-      width: 56px;
-      height: 56px;
-    }
-
-    @media (max-width: 640px){
-      .brain-mark{ display:none; }
-    }
-
-    /* Hero paragraph (short, confident) */
     .hero-tagline {
-      font-size: 1.25rem;
-      color: var(--text-muted);
       max-width: 720px;
-      margin: 0 auto 30px;
+      margin: 0 auto 18px;
+      font-size: clamp(1.02rem, 2.2vw, 1.18rem);
       line-height: 1.65;
-      opacity: .9;
+      opacity: .92;
+      color: var(--text-muted);
     }
     .hero-tagline strong { color: var(--text-main); font-weight: 800; }
-.ar-inline {
+    .hero-tagline .line { display: block; margin-top: 6px; }
+    .hero-tagline .line:first-child { margin-top: 0; }
+
+    .ar-inline {
       direction: rtl;
       unicode-bidi: isolate;
       font-weight: 900;
@@ -360,26 +327,32 @@
       color: var(--text-main);
     }
 
-    .hero-cta-box { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .hero-cta-box { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
     .btn-primary {
       background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
       color: #fff;
-      padding: 16px 40px;
+      padding: 15px 34px;
       border-radius: 99px;
       text-decoration: none;
       font-weight: 900;
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4); }
 
-    .tech-icons { display: flex; gap: 20px; color: var(--text-muted); font-size: 1.4rem; opacity: 0.75; }
+    .tech-icons { display: flex; gap: 16px; color: var(--text-muted); font-size: 1.4rem; opacity: 0.7; margin-top: 6px; }
     .tech-icons i:hover { color: var(--accent-primary); transform: translateY(-3px); opacity: 1; transition: 0.25s; }
 
+    .asset-signals{ margin: 18px auto 10px; text-align: center; }
+    .scarcity-line{ font-size: 12px; letter-spacing: .18em; text-transform: uppercase; opacity: .78; margin-bottom: 10px; }
+    
+    .use-anchors{ display: flex; justify-content: center; gap: 10px; font-size: 13px; opacity: .85; flex-wrap: wrap; }
+    .use-anchors span{ padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.04); }
+
     .trust-row {
-      margin-top: 18px;
+      margin-top: 16px;
       font-size: 0.9rem;
       color: var(--text-muted);
       display: flex;
@@ -387,18 +360,30 @@
       gap: 12px;
       justify-content: center;
       align-items: center;
-      opacity: 0.95;
+      opacity: 0.85;
+      transition: opacity .25s ease;
     }
-    .trust-pill {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--glass-border);
-      background: rgba(255,255,255,0.04);
-    }
+    .trust-row:hover{ opacity: 1; }
+    .trust-pill { display: inline-flex; gap: 6px; align-items: center; padding: 0; background: transparent; border: none; }
+    .trust-pill i { color: var(--accent-secondary); }
+    .trust-pill:first-child i { color: #22c55e; }
 
+    /* Brand Wordmark in Header */
+    .brand-wordmark{
+      font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .brand-wordmark .dot{ opacity: .9; color: var(--accent-secondary); }
+    header.scrolled .brand-wordmark{ font-size: 1.15rem; }
+    [data-theme="dark"] .brand-wordmark{ color: #f8fafc; }
+
+    /* Identity Section */
     .identity-section { margin: 80px 0; position: relative; }
     .identity-header { text-align: center; margin-bottom: 40px; }
     .identity-eyebrow {
@@ -433,7 +418,6 @@
       border: 1px solid var(--card-border-glow);
       box-shadow: var(--card-shadow-glow);
     }
-
     .id-card::after {
       content: "";
       position: absolute;
@@ -443,7 +427,6 @@
       transition: 0.3s;
       pointer-events: none;
     }
-
     .id-card:hover {
       transform: translateY(-5px);
       border-color: var(--accent-primary);
@@ -466,11 +449,7 @@
       transition: 0.4s;
       z-index: 0;
     }
-    .id-card:hover .id-bg-char {
-      opacity: 0.9;
-      filter: blur(0);
-      transform: scale(1.1) translateX(-10px);
-    }
+    .id-card:hover .id-bg-char { opacity: 0.9; filter: blur(0); transform: scale(1.1) translateX(-10px); }
 
     .id-content { position: relative; z-index: 1; }
     .id-term { font-size: 1.3rem; font-weight: 900; color: var(--text-main); margin-bottom: 10px; display: block; }
@@ -497,6 +476,7 @@
       border: 1px solid transparent;
     }
 
+    /* Value Grid */
     .value-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -524,6 +504,7 @@
       margin-bottom: 15px;
     }
 
+    /* Context Section */
     .context-section { margin: 0 0 80px; }
     .context-rail {
       background: linear-gradient(135deg, rgba(124, 58, 237, 0.07), rgba(37, 99, 235, 0.07));
@@ -582,7 +563,6 @@
       font-weight: 900;
       color: var(--text-main);
     }
-
     .context-title .grad {
       background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
       -webkit-background-clip: text;
@@ -595,7 +575,6 @@
       line-height: 1.75;
       color: var(--text-muted);
     }
-
     .context-emph {
       color: var(--text-main);
       font-weight: 900;
@@ -610,6 +589,7 @@
       .context-inner { padding: 36px 18px; }
     }
 
+    /* Steps Section */
     .steps-section { margin: 0 0 80px; position: relative; }
     .steps-header { text-align: center; margin-bottom: 28px; }
     .steps-title {
@@ -714,22 +694,7 @@
     }
     .step-mini i { color: var(--accent-secondary); }
 
-    @media (max-width: 980px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      .id-grid, .form-grid { grid-template-columns: 1fr; }
-
-      .hero h1 {
-        padding: 30px 20px;
-        width: 100%;
-        border-radius: 24px;
-      }
-      .hero-logo-large {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
-    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr; } .step-card { min-height: auto; } }
-
+    /* Ecosystem */
     .ecosystem {
       background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(37, 99, 235, 0.05));
       border: 1px solid var(--card-border-glow);
@@ -766,6 +731,65 @@
       box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
     }
 
+    /* Assurance Section */
+    .assurance-section { margin: 60px 0 80px; }
+    .assurance-rail {
+        border-radius: 26px;
+        padding: 2px;
+        background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(34, 197, 94, 0.15));
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 18px 60px -22px rgba(0, 0, 0, 0.80);
+    }
+    .assurance-rail:hover {
+        transform: translateY(-8px);
+        background: linear-gradient(135deg, #a78bfa, #22c55e);
+        box-shadow: 0 40px 80px -20px rgba(124, 58, 237, 0.3);
+    }
+    .assurance-inner {
+        background: rgba(10, 6, 24, 0.92);
+        border-radius: 24px;
+        padding: 35px 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+    }
+    .assurance-icon-box {
+        width: 64px; height: 64px; min-width: 64px;
+        border-radius: 18px;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(167, 139, 250, 0.1);
+        border: 1px solid rgba(167, 139, 250, 0.3);
+        color: #a78bfa;
+        font-size: 26px;
+        position: relative;
+        box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+        animation: shieldPulse 2.5s infinite ease-in-out;
+    }
+    @keyframes shieldPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(167, 139, 250, 0.2); }
+        50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(167, 139, 250, 0.4); }
+    }
+    .assurance-text h4 {
+        font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;
+        color: #f1f5f9; letter-spacing: -0.02em; font-family: 'Outfit', sans-serif;
+    }
+    .assurance-text p { color: #a6b0c3; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+    .btn-escrow-premium {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: #fff !important; padding: 16px 35px; border-radius: 16px;
+        font-weight: 800; display: flex; align-items: center; gap: 12px;
+        transition: all 0.3s ease; box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2); text-decoration: none;
+        white-space: nowrap; font-family: 'Outfit', sans-serif;
+    }
+    .btn-escrow-premium:hover { transform: scale(1.05); box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.6); }
+
+    /* Inquiry Form */
     .inquiry-section { max-width: 900px; margin: 0 auto; }
     .form-card {
       background: var(--surface-card);
@@ -777,10 +801,7 @@
       box-shadow: var(--card-shadow-glow);
     }
     .form-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 4px;
+      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
       background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
@@ -788,221 +809,86 @@
     .form-group.full { grid-column: 1 / -1; }
 
     label { font-size: 0.85rem; font-weight: 800; color: var(--text-main); }
-
     input, textarea {
-      width: 100%;
-      padding: 12px 16px;
-      background: var(--surface-input);
-      border: 1px solid var(--glass-border);
-      border-radius: 10px;
-      color: var(--text-main);
-      font-family: inherit;
-      font-size: 1rem;
-      transition: 0.2s;
+      width: 100%; padding: 12px 16px; background: var(--surface-input);
+      border: 1px solid var(--glass-border); border-radius: 10px;
+      color: var(--text-main); font-family: inherit; font-size: 1rem; transition: 0.2s;
     }
     input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 3px var(--accent-glow);
-      background: var(--surface-card);
+      outline: none; border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px var(--accent-glow); background: var(--surface-card);
     }
     textarea { min-height: 120px; resize: vertical; }
 
     .submit-btn {
-      width: 100%;
-      padding: 16px;
-      background: var(--text-main);
-      color: var(--bg-color);
-      font-weight: 900;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.2s;
-      position: relative;
+      width: 100%; padding: 16px; background: var(--text-main); color: var(--bg-color);
+      font-weight: 900; border: none; border-radius: 12px; cursor: pointer;
+      font-size: 1rem; transition: 0.2s; position: relative;
     }
     .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
-    .submit-btn[disabled] {
-      cursor: not-allowed;
-      opacity: 0.7;
-      transform: none;
-    }
+    .submit-btn[disabled] { cursor: not-allowed; opacity: 0.7; transform: none; }
 
-    .form-note {
-      margin-top: 14px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
+    .form-note { margin-top: 14px; text-align: center; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
     .form-status {
-      grid-column: 1 / -1;
-      margin-top: -6px;
-      margin-bottom: 6px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--glass-border);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-muted);
-      display: none;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.55;
+      grid-column: 1 / -1; margin-top: -6px; margin-bottom: 6px; padding: 12px 14px;
+      border-radius: 14px; border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.03); color: var(--text-muted);
+      display: none; align-items: flex-start; gap: 10px; line-height: 1.55;
     }
     .form-status.show { display: flex; }
     .form-status .icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--glass-border);
-      background: rgba(255,255,255,0.03);
-      flex: 0 0 auto;
-      margin-top: 1px;
+      width: 26px; height: 26px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--glass-border); background: rgba(255,255,255,0.03);
+      flex: 0 0 auto; margin-top: 1px;
     }
-    .form-status.error {
-      border-color: rgba(239, 68, 68, 0.35);
-      background: rgba(239, 68, 68, 0.08);
-      color: var(--text-main);
-    }
-    .form-status.error .icon { border-color: rgba(239, 68, 68, 0.35); }
-    .form-status.ok {
-      border-color: rgba(34, 197, 94, 0.25);
-      background: rgba(34, 197, 94, 0.08);
-      color: var(--text-main);
-    }
-    .form-status.ok .icon { border-color: rgba(34, 197, 94, 0.25); }
+    .form-status.error { border-color: rgba(239, 68, 68, 0.35); background: rgba(239, 68, 68, 0.08); color: var(--text-main); }
+    .form-status.ok { border-color: rgba(34, 197, 94, 0.25); background: rgba(34, 197, 94, 0.08); color: var(--text-main); }
 
-    footer {
-      text-align: center;
-      margin-top: 18px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      padding-bottom: 30px;
-    }
+    /* Footer & Modals */
+    footer { text-align: center; margin-top: 18px; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 30px; }
     footer a { color: var(--text-main); text-decoration: none; transition: 0.25s; }
     footer a:hover { color: var(--accent-primary); }
     .footer-links { margin-top: 10px; display: flex; gap: 20px; justify-content: center; font-size: 0.85rem; }
 
     .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s;
+      position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: 0.25s;
     }
     .modal.show { opacity: 1; pointer-events: auto; }
-
-    .modal-bg {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(4px);
-    }
-
+    .modal-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
     .modal-content {
-      position: relative;
-      background: var(--surface-card);
-      width: 90%;
-      max-width: 520px;
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--card-border-glow);
-      transform: translateY(20px);
-      transition: 0.25s;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      position: relative; background: var(--surface-card); width: 90%; max-width: 520px;
+      padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--card-border-glow);
+      transform: translateY(20px); transition: 0.25s; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
     }
     .modal.show .modal-content { transform: translateY(0); }
 
-    .privacy-text {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      text-align: left;
-      max-height: 60vh;
-      overflow-y: auto;
-    }
+    .privacy-text { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); text-align: left; max-height: 60vh; overflow-y: auto; }
     .privacy-text h4 { color: var(--text-main); margin: 15px 0 6px; }
 
     .success-wrap { text-align: center; padding-top: 6px; }
     .success-icon {
-      width: 78px;
-      height: 78px;
-      border-radius: 999px;
-      margin: 0 auto 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(167, 139, 250, 0.12);
-      border: 1px solid rgba(167, 139, 250, 0.28);
+      width: 78px; height: 78px; border-radius: 999px; margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(167, 139, 250, 0.12); border: 1px solid rgba(167, 139, 250, 0.28);
       box-shadow: 0 0 0 10px rgba(167, 139, 250, 0.06);
     }
-    .success-icon i {
-      font-size: 1.6rem;
-      color: var(--text-main);
-      opacity: 0.95;
-    }
-
-    .success-title {
-      font-size: 2.1rem;
-      font-weight: 900;
-      line-height: 1.05;
-      margin-bottom: 10px;
-      font-family: "Playfair Display", serif;
-    }
-
-    .success-subtitle {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.65;
-      max-width: 420px;
-      margin: 0 auto 18px;
-    }
-
-    .success-pills {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
+    .success-icon i { font-size: 1.6rem; color: var(--text-main); opacity: 0.95; }
+    .success-title { font-size: 2.1rem; font-weight: 900; line-height: 1.05; margin-bottom: 10px; font-family: "Playfair Display", serif; }
+    .success-subtitle { color: var(--text-muted); font-size: 0.98rem; line-height: 1.65; max-width: 420px; margin: 0 auto 18px; }
+    .success-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
     .success-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--glass-border);
-      background: rgba(255,255,255,0.04);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 800;
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px;
+      border-radius: 999px; border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.04); color: var(--text-muted); font-size: 0.9rem; font-weight: 800;
     }
     .success-pill i { color: var(--accent-secondary); }
-
-    .success-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
+    .success-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
     .btn-ghost {
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--glass-border);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-main);
-      font-weight: 900;
-      cursor: pointer;
-      transition: 0.2s;
+      padding: 12px 18px; border-radius: 12px; border: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.03); color: var(--text-main); font-weight: 900;
+      cursor: pointer; transition: 0.2s;
     }
     .btn-ghost:hover { transform: translateY(-1px); border-color: rgba(139, 92, 246, 0.35); }
 
@@ -1010,373 +896,104 @@
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
     }
-    /* تصميم شريط ضمان النقل المرتب داخل إطار */
-/* Transfer Assurance - المظهر الجديد المستوحى من تفكير */
-.assurance-section {
-    margin: 60px 0 80px;
-}
 
-/* الإطار الخارجي (السكّة) مع تدرج لوني خفيف */
-.assurance-rail {
-    border-radius: 26px; /* --radius-lg */
-    padding: 2px;
-    background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(34, 197, 94, 0.15));
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 18px 60px -22px rgba(0, 0, 0, 0.80);
-}
+    /* =========================================
+       MOBILE & TABLET OPTIMIZATION (THE FIXES)
+       ========================================= */
 
-.assurance-rail:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(135deg, #a78bfa, #22c55e);
-    box-shadow: 0 40px 80px -20px rgba(124, 58, 237, 0.3);
-}
-
-.assurance-inner {
-    background: rgba(10, 6, 24, 0.92); /* لون خلفية غامق واحترافي */
-    border-radius: 24px;
-    padding: 35px 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    position: relative;
-    overflow: hidden;
-}
-
-/* صندوق الأيقونة مع التوهج (Glow) الذي أعجبك */
-.assurance-icon-box {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(167, 139, 250, 0.1);
-    border: 1px solid rgba(167, 139, 250, 0.3);
-    color: #a78bfa; /* اللون البنفسجي الفاتح */
-    font-size: 26px;
-    position: relative;
-    /* التوهج الأرجواني المميز */
-    box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
-    animation: shieldPulse 2.5s infinite ease-in-out;
-}
-
-@keyframes shieldPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(167, 139, 250, 0.2); }
-    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(167, 139, 250, 0.4); }
-}
-
-.assurance-text h4 {
-    font-size: 1.6rem;
-    font-weight: 800; /* خط Outfit العريض */
-    margin-bottom: 8px;
-    color: #f1f5f9;
-    letter-spacing: -0.02em;
-    font-family: 'Outfit', sans-serif; /* التأكد من استخدام نفس الخط */
-}
-
-.assurance-text p {
-    color: #a6b0c3;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* زر Escrow الأخضر النيوني المطور */
-.btn-escrow-premium {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: #fff !important;
-    padding: 16px 35px;
-    border-radius: 16px;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    text-decoration: none;
-    white-space: nowrap;
-    font-family: 'Outfit', sans-serif;
-}
-
-.btn-escrow-premium:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.6);
-}
-
-/* استجابة الموبايل */
-@media (max-width: 768px) {
-    .assurance-inner {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
+    /* Tablet/General Mobile */
+    @media (max-width: 980px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .id-grid, .form-grid { grid-template-columns: 1fr; }
+      .assurance-inner { flex-direction: column; text-align: center; padding: 30px 20px; }
+      .btn-escrow-premium { width: 100%; justify-content: center; }
     }
-    .btn-escrow-premium {
-        width: 100%;
+
+    /* Specific Mobile Tweaks (Small Screens) */
+    @media (max-width: 640px) {
+      
+      /* --- Spacing --- */
+      .hero-box { padding: 22px 16px; }
+      .hero-label { margin-bottom: 14px; }
+      .identity-section, .context-section, .steps-section, .ecosystem, .assurance-section { margin-bottom: 50px; }
+      
+      /* --- Typography Reductions --- */
+      .hero-wordmark { font-size: clamp(3rem, 13vw, 4.5rem); letter-spacing: -0.035em; margin-bottom: 10px; }
+      .hero-tagline { font-size: 1rem; line-height: 1.5; }
+      .btn-primary { width: 100%; max-width: 420px; text-align: center; padding: 14px 20px; font-size: 0.95rem; }
+
+      /* --- FIX: Scarcity Line Wrapping --- */
+      .scarcity-line { 
+        white-space: normal; /* Allow wrap */
+        letter-spacing: 0.05em; /* Reduce massive spacing */
+        font-size: 0.7rem;
+        line-height: 1.4;
+        padding: 0 10px;
+      }
+
+      /* --- FIX: Pills Wrapping --- */
+      .use-anchors {
+        flex-wrap: wrap; /* Allow wrapping to new lines */
         justify-content: center;
+        gap: 8px;
+        white-space: normal;
+        padding: 0 10px;
+      }
+      .use-anchors span {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        flex: 0 0 auto; /* Keep pill shape */
+      }
+
+      /* --- FIX: Submit Button Size --- */
+      .submit-btn {
+        padding: 12px; /* Reduced from 16px */
+        font-size: 0.95rem; /* Smaller font */
+        width: 100%;
+        white-space: nowrap; /* Keep on one line if possible */
+      }
+
+      /* --- Cards & Grids --- */
+      .steps-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+      .step-card { min-height: auto; padding: 15px 10px; }
+      .step-icon { width: 42px; height: 42px; margin-bottom: 10px; }
+      .step-title { font-size: 0.95rem; margin-bottom: 6px; }
+      .step-desc { font-size: 0.75rem; line-height: 1.35; max-width: 100%; }
+      .step-mini { display: none; }
+
+      .value-grid {
+        display: flex; flex-wrap: nowrap; gap: 12px; overflow-x: auto;
+        -webkit-overflow-scrolling: touch; padding-bottom: 10px; scroll-snap-type: x mandatory;
+      }
+      .value-grid::-webkit-scrollbar { height: 4px; }
+      .value-grid > .value-card { flex: 0 0 80%; min-width: 80%; scroll-snap-align: start; padding: 20px; }
+      .value-card h3 { font-size: 1.1rem; }
+      .value-card p { font-size: 0.9rem; }
+
+      .context-title { font-size: 1.7rem; line-height: 1.2; }
+      .context-desc { font-size: 0.95rem; }
+      .context-inner { padding: 30px 20px; }
+
+      .id-card { padding: 20px; }
+      .id-term { font-size: 1.2rem; }
+      .id-bg-char { font-size: 3.5rem; top: 5px; right: 10px; }
+      .id-def { font-size: 0.9rem; }
+
+      .assurance-inner { padding: 24px 16px; gap: 18px; }
+      .assurance-icon-box { width: 50px; height: 50px; min-width: 50px; font-size: 20px; }
+      .assurance-text h4 { font-size: 1.3rem; }
+      .assurance-text p { font-size: 0.9rem; }
+      .btn-escrow-premium { padding: 14px 20px; font-size: 0.95rem; }
+
+      .trust-row {
+        flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        white-space: nowrap; justify-content: flex-start; gap: 10px; padding: 0 10px;
+      }
+      .trust-row::-webkit-scrollbar { display: none; }
+      
+      .brand-logo-img { height: 28px; }
+      header.scrolled .brand-logo-img { height: 24px; }
     }
-}
-.asset-signals{
-  margin: 28px auto 18px;
-  text-align: center;
-}
-
-.scarcity-line{
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  opacity: .75;
-  margin-bottom: 12px;
-}
-
-.use-anchors{
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  font-size: 13px;
-  opacity: .85;
-}
-
-.use-anchors span{
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.04);
-}
-
-  
-
-/* ===== HERO ORDERING — Institutional Rhythm (Override) ===== */
-.hero { padding-top: clamp(28px, 6vh, 64px); }
-
-.hero-box{
-  width: min(1080px, 100%);
-  margin: 0 auto;
-  padding: clamp(22px, 3.2vw, 42px) clamp(18px, 3vw, 44px);
-  background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.045) 0%, rgba(0,0,0,0) 70%);
-  border: none;
-  box-shadow: none;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  border-radius: clamp(20px, 3vw, 32px);
-}
-
-.hero-label{
-  margin-bottom: 18px;
-  padding: 7px 14px;
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-}
-
-.hero-wordmark{
-  font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
-  font-weight: 800;
-  font-size: clamp(52px, 11vw, 136px);
-  letter-spacing: -0.04em;
-  line-height: .9;
-  margin: 0 auto 14px;
-  text-align: center;
-  color: var(--hero-wordmark, var(--text-main));
-  text-shadow: 0 0 30px rgba(0,0,0,.55);
-}
-
-.hero-wordmark .dot{ opacity: .9; }
-
-.hero-tagline{
-  max-width: 720px;
-  margin: 0 auto 18px;
-  font-size: clamp(1.02rem, 2.2vw, 1.18rem);
-  line-height: 1.65;
-  opacity: .92;
-}
-
-.hero-cta-box{ gap: 14px; }
-
-.btn-primary{
-  padding: 15px 34px;
-  font-size: 1.02rem;
-}
-
-.tech-icons{ margin-top: 6px; gap: 16px; opacity: .7; }
-
-.asset-signals{ margin: 18px auto 10px; }
-.scarcity-line{ margin-bottom: 10px; opacity: .78; }
-.use-anchors{ gap: 10px; flex-wrap: wrap; }
-
-.trust-row{
-  margin-top: 16px;
-  opacity: .85;
-  transition: opacity .25s ease;
-}
-.trust-row:hover{ opacity: 1; }
-
-/* Theme-linked wordmark color */
-:root{ --hero-wordmark: #0f172a; }
-[data-theme="dark"]{ --hero-wordmark: rgba(248,250,252,.96); }
-
-/* Mobile tightening */
-@media (max-width: 640px){
-  .hero-box{ padding: 22px 16px; }
-  .hero-label{ margin-bottom: 14px; }
-  .hero-wordmark{ font-size: clamp(44px, 15vw, 84px); letter-spacing: -0.035em; }
-  .btn-primary{ width: 100%; max-width: 420px; text-align: center; }
-}
-.hero-tagline .line{
-  display: block;
-  margin-top: 6px;
-}
-
-.hero-tagline .line:first-child{
-  margin-top: 0;
-}
-.brand-wordmark{
-  font-family: "Manrope","Inter",system-ui,-apple-system,sans-serif;
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  color: var(--text-main);
-  cursor: pointer;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-.brand-wordmark .dot{
-  opacity: .9;
-}
-
-/* عند scroll (الهيدر المصغّر) */
-header.scrolled .brand-wordmark{
-  font-size: 1.15rem;
-}
-
-/* ثيم داكن */
-[data-theme="dark"] .brand-wordmark{
-  color: #f8fafc;
-}
-
-
-
-/* ===== Gnosis-like Touch — Editorial Authority (Override) ===== */
-.hero-kicker{
-  margin: 0 auto 18px;
-  text-align: center;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 0.98rem;
-  letter-spacing: 0.4px;
-  color: rgba(242,208,115,.88);
-  opacity: .95;
-}
-.hero-kicker span{ opacity: .82; }
-
-.hero-label{
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.10);
-}
-
-.hero-wordmark{
-  font-weight: 800;
-  letter-spacing: -0.05em;
-}
-
-.hero-axiom{
-  margin: 12px auto 20px;
-  text-align: center;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.6px;
-  color: rgba(242,208,115,.78);
-}
-
-/* CTA: less SaaS, more mandate */
-.btn-primary{
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid rgba(255,255,255,0.18) !important;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 18px 48px rgba(0,0,0,.45) !important;
-}
-.btn-primary:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(167,139,250,0.35), 0 22px 60px rgba(0,0,0,.55) !important;
-}
-
-/* Slight editorial hierarchy for tagline lines */
-.hero-tagline .line:last-child{ opacity: .82; }
-
-/* Mobile: tighten kicker */
-@media (max-width: 640px){
-  .hero-kicker{ font-size: 0.88rem; margin-bottom: 14px; }
-  .hero-axiom{ font-size: 0.82rem; margin-bottom: 18px; }
-}
-
-
-
-/* Kicker subtle fade on scroll */
-.hero-kicker{
-  transition: opacity .35s ease, transform .35s ease;
-  will-change: opacity, transform;
-}
-.hero-kicker-sub{
-  display: block;
-  margin-top: 6px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-  opacity: 0.75;
-  color: rgba(248,250,252,.85);
-}
-.hero-kicker.is-faded{
-  opacity: 0.65;
-  transform: translateY(-4px) scale(0.97);
-}
-@media(max-width:640px){
-  .hero-kicker-sub{ font-size: 0.82rem; }
-}
-
-
-
-/* ===== Production Polish — Light/Dark balance (Override) ===== */
-/* Kicker: quieter in light, slightly more breathing room */
-[data-theme="light"] .hero-kicker{
-  margin-bottom: 26px;
-  color: rgba(160, 140, 105, .72);
-}
-
-/* Wordmark shadow: softer in light (editorial, not poster) */
-[data-theme="light"] .hero-wordmark{
-  text-shadow: 0 10px 30px rgba(15,23,42,.12);
-}
-
-/* Space rhythm */
-.hero-wordmark{ margin-bottom: 22px; }
-
-/* CTA: decisive in light, mandate-grade */
-[data-theme="light"] .btn-primary{
-  background: rgba(15,23,42,.92) !important;
-  color: #ffffff !important;
-  border-color: rgba(15,23,42,.92) !important;
-  box-shadow: 0 18px 40px rgba(15,23,42,.25) !important;
-}
-[data-theme="light"] .btn-primary:hover{
-  background: rgba(15,23,42,.98) !important;
-  box-shadow: 0 22px 54px rgba(15,23,42,.32) !important;
-}
-
-/* CTA text clarity safeguard (if any opacity rules exist) */
-.btn-primary{ opacity: 1; }
-
-/* Subline readability in light */
-[data-theme="light"] .hero-kicker-sub{
-  color: rgba(15,23,42,.72);
-  opacity: 0.88;
-}
-
 </style>
 </head>
 
@@ -1387,11 +1004,8 @@ header.scrolled .brand-wordmark{
   <div class="container">
     <header id="main-header">
       <div class="brand-stack" id="scrollTopBtn">
-        <img src="favicon.png" alt="M" class="brand-mark" width="42" height="42" loading="eager">
-        <div class="brand-wordmark">
-  mokh<span class="dot">.</span>ai
-</div>
-
+        <img src="logo.png" alt="MOKH Logo" class="brand-logo-img" />
+        <div class="brand-wordmark">mokh<span class="dot">.</span>ai</div>
       </div>
 
       <div class="header-controls">
@@ -1408,56 +1022,41 @@ header.scrolled .brand-wordmark{
 
     <section class="hero">
       <div class="hero-box">
-      
+        
 
-      <div class="hero-kicker">
-    / moḵ / <span>cognition, signal, identity.</span>
-    <span class="hero-kicker-sub">An institutional mark for neural infrastructure.</span>
-  </div>
+        <h1 class="hero-wordmark">mokh<span class="dot">.</span>ai</h1>
 
-<h1 class="hero-wordmark">
-        mokh<span class="dot">.</span>ai</h1>
+        <p class="hero-tagline">
+          <span class="line">A Neural Identity for AI Infrastructure.</span>
+          <span class="line"><span class="ar-inline" lang="ar" dir="rtl">مخ</span> means <span class="ar-inline">Brain</span>.</span>
+          <span class="line">The definitive identity for Neural Networks.</span>
+        </p>
 
-      <p class="hero-tagline">
-  <span class="line">
-    A Neural Identity for AI Infrastructure.
-  </span>
-  <span class="line">
-    <span class="ar-inline" lang="ar" dir="rtl">مخ</span> means <span class="ar-inline">Brain</span>.
-  </span>
-  <span class="line">
-    The definitive identity for Neural Networks.
-  </span>
+        <div class="hero-cta-box">
+          <a href="#inquiry" class="btn-primary">Initiate Acquisition Review</a>
 
+          <div class="tech-icons" aria-hidden="true">
+            <i class="fa-solid fa-microchip"></i>
+            <i class="fa-solid fa-brain"></i>
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
 
+          <div class="asset-signals">
+            <div class="scarcity-line">Four-letter .ai · Single-owner · Transfer-ready</div>
+            <div class="use-anchors">
+              <span>AI Infrastructure</span>
+              <span>Cognitive Systems</span>
+              <span>Agentic Tooling</span>
+            </div>
+          </div>
 
-      <div class="hero-cta-box">
-        <a href="#inquiry" class="btn-primary">Request Acquisition Mandate</a>
-
-        <div class="tech-icons" aria-hidden="true">
-          <i class="fa-solid fa-microchip"></i>
-          <i class="fa-solid fa-brain"></i>
-          <i class="fa-solid fa-network-wired"></i>
-        </div>
-<div class="asset-signals">
-  <div class="scarcity-line">
-    Four-letter .ai · Single-owner · Transfer-ready
-  </div>
-
-  <div class="use-anchors">
-    <span>AI Infrastructure</span>
-    <span>Cognitive Systems</span>
-    <span>Agentic Tooling</span>
-  </div>
-</div>
-
-        <div class="trust-row">
-          <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Escrow supported</span>
-          <span class="trust-pill"><i class="fa-solid fa-lock"></i> Confidential negotiation</span>
+          <div class="trust-row">
+            <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Escrow supported</span>
+            <span class="trust-pill"><i class="fa-solid fa-lock"></i> Confidential negotiation</span>
+          </div>
         </div>
       </div>
-        </div>
-</section>
+    </section>
 
     <section class="identity-section" id="meaning">
       <div class="identity-header">
@@ -1473,9 +1072,7 @@ header.scrolled .brand-wordmark{
           <div class="id-bg-char">M</div>
           <div class="id-content">
             <span class="id-term"><span>M</span>achine Optimized</span>
-            <p class="id-def">
-              <strong>Knowledge Hub.</strong> Built for LLMs, RAG systems, and enterprise infrastructure where speed equates to intelligence.
-            </p>
+            <p class="id-def"><strong>Knowledge Hub.</strong> Built for LLMs, RAG systems, and enterprise infrastructure where speed equates to intelligence.</p>
           </div>
         </div>
 
@@ -1483,9 +1080,7 @@ header.scrolled .brand-wordmark{
           <div class="id-bg-char">O</div>
           <div class="id-content">
             <span class="id-term"><span>O</span>rganized Memory</span>
-            <p class="id-def">
-              <strong>Structured Persistence.</strong> A system focused on retrieval, cognitive continuity, and long-term data preservation.
-            </p>
+            <p class="id-def"><strong>Structured Persistence.</strong> A system focused on retrieval, cognitive continuity, and long-term data preservation.</p>
           </div>
         </div>
 
@@ -1493,9 +1088,7 @@ header.scrolled .brand-wordmark{
           <div class="id-bg-char">K</div>
           <div class="id-content">
             <span class="id-term"><span>K</span>ernel for Humans</span>
-            <p class="id-def">
-              <strong>Modern Operating Core.</strong> Tools for thinking and clarity, bridging raw data and human insight.
-            </p>
+            <p class="id-def"><strong>Modern Operating Core.</strong> Tools for thinking and clarity, bridging raw data and human insight.</p>
           </div>
         </div>
 
@@ -1503,9 +1096,7 @@ header.scrolled .brand-wordmark{
           <div class="id-bg-char">H</div>
           <div class="id-content">
             <span class="id-term"><span>H</span>orizons</span>
-            <p class="id-def">
-              <strong>Mining Knowledge.</strong> Focused on research, discovery, and exploring long-term frontiers of AI.
-            </p>
+            <p class="id-def"><strong>Mining Knowledge.</strong> Focused on research, discovery, and exploring long-term frontiers of AI.</p>
           </div>
         </div>
       </div>
@@ -1552,19 +1143,12 @@ header.scrolled .brand-wordmark{
               <i class="fa-solid fa-globe"></i>
             </div>
 
-            <div class="context-kicker">
-              <i class="fa-solid fa-sparkles"></i>
-              Why this asset
-            </div>
+            <div class="context-kicker"><i class="fa-solid fa-sparkles"></i> Why this asset</div>
 
-            <h2 class="context-title">
-              The Middle East is the next <span class="grad">AI frontier.</span>
-            </h2>
+            <h2 class="context-title">The Middle East is the next <span class="grad">AI frontier.</span></h2>
 
             <p class="context-desc">
-              With billions invested in Vision 2030 and sovereign LLMs,
-              owning the word for <span class="context-emph">Brain</span> is not just a brand choice
-              — it’s a <span class="context-emph">strategic advantage</span>.
+              With billions invested in Vision 2030 and sovereign LLMs, owning the word for <span class="context-emph">Brain</span> is not just a brand choice — it’s a <span class="context-emph">strategic advantage</span>.
             </p>
           </div>
         </div>
@@ -1574,9 +1158,7 @@ header.scrolled .brand-wordmark{
     <section class="steps-section" id="process">
       <div class="steps-header">
         <h2 class="steps-title">Secure Acquisition</h2>
-        <p class="steps-subtitle">
-          Professional transfer workflow designed for confidentiality, clarity, and a clean close using escrow if needed.
-        </p>
+        <p class="steps-subtitle">Professional transfer workflow designed for confidentiality, clarity, and a clean close using escrow if needed.</p>
       </div>
 
       <div class="steps-rail">
@@ -1584,30 +1166,30 @@ header.scrolled .brand-wordmark{
           <div class="steps-grid">
             <div class="step-card">
               <div class="step-icon"><i class="fa-solid fa-file-lines"></i></div>
-              <div class="step-title">Submit Acquisition Request</div>
+              <div class="step-title">Acquisition Request</div>
               <p class="step-desc">Express interest in mokh.ai or the bundle via the private form.</p>
-              <div class="step-mini"><i class="fa-solid fa-lock"></i> Confidential intake</div>
+              <div class="step-mini"><i class="fa-solid fa-lock"></i> Confidential</div>
             </div>
 
             <div class="step-card">
               <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
               <div class="step-title">Negotiation</div>
               <p class="step-desc">Direct communication to align on valuation, timeline, and terms.</p>
-              <div class="step-mini"><i class="fa-solid fa-comments"></i> Direct channel</div>
+              <div class="step-mini"><i class="fa-solid fa-comments"></i> Direct</div>
             </div>
 
             <div class="step-card">
               <div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div>
               <div class="step-title">Safeguards</div>
-              <p class="step-desc">Execute via escrow or registrar supported transfer steps, based on preference.</p>
-              <div class="step-mini"><i class="fa-solid fa-check"></i> Escrow supported</div>
+              <p class="step-desc">Execute via escrow or registrar supported transfer steps.</p>
+              <div class="step-mini"><i class="fa-solid fa-check"></i> Escrow</div>
             </div>
 
             <div class="step-card">
               <div class="step-icon"><i class="fa-solid fa-right-left"></i></div>
               <div class="step-title">Asset Transfer</div>
-              <p class="step-desc">Domain is transferred to your registrar account as agreed, then settled.</p>
-              <div class="step-mini"><i class="fa-solid fa-badge-check"></i> Clean close</div>
+              <p class="step-desc">Domain is transferred to your registrar account as agreed.</p>
+              <div class="step-mini"><i class="fa-solid fa-badge-check"></i> Closed</div>
             </div>
           </div>
         </div>
@@ -1615,56 +1197,43 @@ header.scrolled .brand-wordmark{
     </section>
 
     <section class="ecosystem">
-  <div class="eco-inner">
-    <span class="eco-badge">Bundle Opportunity</span>
-    
-    <h2 style="margin-top:15px; margin-bottom:10px;">The Complete Neural Stack</h2>
-    <p>Own the Brain and the Reasoning Process in one acquisition.</p>
-
-    <div class="equation-container">
-      <span class="eq-item">mokh.ai</span>
-      
-      <i class="fa-solid fa-plus" style="color:var(--accent-secondary);"></i>
-      
-      <a href="https://tafkir.ai" target="_blank" class="eq-item highlight">tafkir.ai</a>
-    </div>
-
-    <p style="font-size:0.9rem; opacity:0.85; color:var(--text-muted);">
-      Ask for the bundle terms via the form. NDA available.
-    </p>
-  </div>
-</section>
-
-<section class="assurance-section reveal">
-  <div class="assurance-rail">
-    <div class="assurance-inner">
-      <div style="display: flex; align-items: center; gap: 25px;" class="mobile-stack">
-        <div class="assurance-icon-box">
-          <i class="fa-solid fa-shield-halved"></i>
+      <div class="eco-inner">
+        <span class="eco-badge">Bundle Opportunity</span>
+        <h2 style="margin-top:15px; margin-bottom:10px;">The Complete Neural Stack</h2>
+        <p>Own the Brain and the Reasoning Process in one acquisition.</p>
+        <div class="equation-container">
+          <span class="eq-item">mokh.ai</span>
+          <i class="fa-solid fa-plus" style="color:var(--accent-secondary);"></i>
+          <a href="https://tafkir.ai" target="_blank" class="eq-item highlight">tafkir.ai</a>
         </div>
-        <div class="assurance-text">
-          <h4>Secure Asset Transfer</h4>
-          <p>We utilize <strong>Escrow.com</strong> to guarantee a risk-free transaction. The funds are only released after the domain is safely in your control.</p>
+        <p style="font-size:0.9rem; opacity:0.85; color:var(--text-muted);">Ask for the bundle terms via the form. NDA available.</p>
+      </div>
+    </section>
+
+    <section class="assurance-section reveal">
+      <div class="assurance-rail">
+        <div class="assurance-inner">
+          <div style="display: flex; align-items: center; gap: 25px; flex-direction: inherit;" class="mobile-stack">
+            <div class="assurance-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="assurance-text">
+              <h4>Secure Asset Transfer</h4>
+              <p>We utilize <strong>Escrow.com</strong> to guarantee a risk-free transaction.</p>
+            </div>
+          </div>
+          <a href="https://www.escrow.com" target="_blank" rel="noopener" class="btn-escrow-premium">
+            <i class="fa-solid fa-lock"></i> <span>Acquire via Escrow</span>
+          </a>
         </div>
       </div>
-      <a href="https://www.escrow.com" target="_blank" rel="noopener" class="btn-escrow-premium">
-        <i class="fa-solid fa-lock"></i>
-        <span>Acquire via Escrow</span>
-      </a>
-    </div>
-  </div>
-</section>
+    </section>
     
-        <section class="inquiry-section" id="inquiry">
+    <section class="inquiry-section" id="inquiry">
       <div class="form-card">
         <h2 style="text-align:center; margin-bottom:10px;">Institutional Acquisition</h2>
-        <p style="text-align:center; color:var(--text-muted); margin-bottom:10px;">
-          Private review for aligned institutional buyers only.
-        </p>
+        <p style="text-align:center; color:var(--text-muted); margin-bottom:10px;">Private review for aligned institutional buyers only.</p>
 
         <form id="inquiryForm" name="inquiry" method="POST" class="form-grid" novalidate>
           <input type="hidden" name="access_key" value="76c55b79-0573-494e-a805-f3e1e089d894" />
-
           <input type="text" name="bot-field" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; height:1px; width:1px; opacity:0;" aria-hidden="true">
 
           <div class="form-status" id="formStatus" role="status" aria-live="polite">
@@ -1694,27 +1263,22 @@ header.scrolled .brand-wordmark{
 
           <div class="form-group full">
             <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-              <input id="nda_first" name="nda_first" type="checkbox" style="width:auto;">
-              Request NDA first
+              <input id="nda_first" name="nda_first" type="checkbox" style="width:auto;"> Request NDA first
             </label>
           </div>
 
           <div class="form-group full" style="margin-top:10px;">
             <button id="submitBtn" type="submit" class="submit-btn">Submit Acquisition Request</button>
           </div>
-
+          
           <noscript>
             <div class="form-group full">
-              <p style="color:var(--text-muted);">
-                JavaScript is disabled. Please email <a href="mailto:invest@mokh.ai">invest@mokh.ai</a>.
-              </p>
+              <p style="color:var(--text-muted);">JavaScript is disabled. Please email <a href="mailto:invest@mokh.ai">invest@mokh.ai</a>.</p>
             </div>
           </noscript>
         </form>
 
-        <div class="form-note">
-          Protected communication. Escrow supported for mutual safety.
-        </div>
+        <div class="form-note">Protected communication. Escrow supported for mutual safety.</div>
       </div>
     </section>
 
@@ -1738,10 +1302,8 @@ header.scrolled .brand-wordmark{
       <div class="privacy-text">
         <h4>1. Data collection</h4>
         <p>We collect only the information you submit via the form for the purpose of domain negotiation.</p>
-
         <h4>2. Use of data</h4>
         <p>Your submission is treated as confidential and is used only to communicate about the potential acquisition.</p>
-
         <h4>3. Security and transfer</h4>
         <p>We support escrow based transactions for mutual protection. If you request an NDA, we can provide one before detailed discussions.</p>
       </div>
@@ -1752,20 +1314,13 @@ header.scrolled .brand-wordmark{
     <div class="modal-bg" data-close="successModal"></div>
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="successTitle">
       <div class="success-wrap">
-        <div class="success-icon" aria-hidden="true">
-          <i class="fa-solid fa-check"></i>
-        </div>
-
+        <div class="success-icon" aria-hidden="true"><i class="fa-solid fa-check"></i></div>
         <div class="success-title" id="successTitle">Inquiry Received</div>
-        <div class="success-subtitle" id="successSubtitle">
-          Your request has been recorded. A representative will review your inquiry and follow up shortly.
-        </div>
-
+        <div class="success-subtitle" id="successSubtitle">Your request has been recorded. A representative will review your inquiry and follow up shortly.</div>
         <div class="success-pills">
           <span class="success-pill"><i class="fa-solid fa-lock"></i> Confidentiality First</span>
           <span class="success-pill" id="ndaPill" style="display:none;"><i class="fa-solid fa-file-signature"></i> NDA request noted</span>
         </div>
-
         <div class="success-actions">
           <button class="btn-ghost" data-close="successModal" type="button">Close</button>
         </div>
@@ -1798,7 +1353,6 @@ header.scrolled .brand-wordmark{
         canvas.style.width = w + "px";
         canvas.style.height = h + "px";
         ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
         init();
       }
 
@@ -1806,9 +1360,7 @@ header.scrolled .brand-wordmark{
         constructor() {
           this.x = Math.random() * w;
           this.y = Math.random() * h;
-
           this.isSpecial = Math.random() < 0.10;
-
           if (this.isSpecial) {
             this.size = Math.random() * 2 + 1.5;
             this.speedFactor = 0.4;
@@ -1817,7 +1369,6 @@ header.scrolled .brand-wordmark{
             this.color = colors[(Math.random() * colors.length) | 0];
             this.speedFactor = 0.25;
           }
-
           this.vx = (Math.random() - 0.5) * this.speedFactor;
           this.vy = (Math.random() - 0.5) * this.speedFactor;
         }
@@ -1825,16 +1376,13 @@ header.scrolled .brand-wordmark{
         step() {
           this.x += this.vx;
           this.y += this.vy;
-
           if (this.x < 0 || this.x > w) this.vx *= -1;
           if (this.y < 0 || this.y > h) this.vy *= -1;
-
           if (mouse.x !== null) {
             const dx = this.x - mouse.x;
             const dy = this.y - mouse.y;
             const dist2 = dx * dx + dy * dy;
             const r2 = mouse.radius * mouse.radius;
-
             if (dist2 > 0.0001 && dist2 < r2) {
               const dist = Math.sqrt(dist2);
               const force = (mouse.radius - dist) / mouse.radius;
@@ -1847,7 +1395,6 @@ header.scrolled .brand-wordmark{
         draw(isDark) {
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-
           if (this.isSpecial) {
             if (isDark) {
               ctx.fillStyle = "#ffffff";
@@ -1861,7 +1408,6 @@ header.scrolled .brand-wordmark{
             ctx.fillStyle = this.color;
             ctx.shadowBlur = 0;
           }
-
           ctx.fill();
           ctx.shadowBlur = 0;
         }
@@ -1877,22 +1423,15 @@ header.scrolled .brand-wordmark{
       function connect(isDark) {
         const maxDist = (w < 600) ? 85 : 110;
         const maxDist2 = maxDist * maxDist;
-
         for (let a = 0; a < particles.length; a++) {
           for (let b = a + 1; b < particles.length; b++) {
             const dx = particles[a].x - particles[b].x;
             const dy = particles[a].y - particles[b].y;
             const d2 = dx * dx + dy * dy;
-
             if (d2 < maxDist2) {
               const alpha = 1 - d2 / maxDist2;
-
-              if (isDark) {
-                ctx.strokeStyle = `rgba(167, 139, 250, ${alpha * 0.2})`;
-              } else {
-                ctx.strokeStyle = `rgba(0, 0, 0, ${alpha * 0.15})`;
-              }
-
+              if (isDark) ctx.strokeStyle = `rgba(167, 139, 250, ${alpha * 0.2})`;
+              else ctx.strokeStyle = `rgba(0, 0, 0, ${alpha * 0.15})`;
               ctx.lineWidth = 0.6;
               ctx.beginPath();
               ctx.moveTo(particles[a].x, particles[a].y);
@@ -1906,50 +1445,30 @@ header.scrolled .brand-wordmark{
       function animate() {
         frame++;
         ctx.clearRect(0, 0, w, h);
-
         const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-
-        for (const p of particles) {
-          p.step();
-          p.draw(isDark);
-        }
-
+        for (const p of particles) { p.step(); p.draw(isDark); }
         if (frame % 2 === 0) connect(isDark);
         requestAnimationFrame(animate);
       }
 
       window.addEventListener("resize", resize, { passive: true });
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      }, { passive: true });
-      window.addEventListener("mouseleave", () => {
-        mouse.x = null;
-        mouse.y = null;
-      });
-
-      resize();
-      animate();
+      window.addEventListener("mousemove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+      window.addEventListener("mouseleave", () => { mouse.x = null; mouse.y = null; });
+      resize(); animate();
     })();
   </script>
 
   <script>
     (function () {
       const html = document.documentElement;
-
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
+      
       const topBtn = document.getElementById("scrollTopBtn");
-      if (topBtn) {
-        topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-      }
+      if (topBtn) topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
       const header = document.getElementById("main-header");
-      const syncHeader = () => {
-        if (!header) return;
-        header.classList.toggle("scrolled", window.scrollY > 10);
-      };
+      const syncHeader = () => { if (!header) return; header.classList.toggle("scrolled", window.scrollY > 10); };
       window.addEventListener("scroll", syncHeader, { passive: true });
       syncHeader();
 
@@ -1978,13 +1497,7 @@ header.scrolled .brand-wordmark{
       }
 
       setTheme(getTheme());
-
-      if (toggle) {
-        toggle.addEventListener("click", () => {
-          const now = getTheme();
-          setTheme(now === "dark" ? "light" : "dark");
-        });
-      }
+      if (toggle) toggle.addEventListener("click", () => { const now = getTheme(); setTheme(now === "dark" ? "light" : "dark"); });
 
       function openModal(id) {
         const m = document.getElementById(id);
@@ -1993,7 +1506,6 @@ header.scrolled .brand-wordmark{
         m.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
       }
-
       function closeModal(id) {
         const m = document.getElementById(id);
         if (!m) return;
@@ -2003,31 +1515,16 @@ header.scrolled .brand-wordmark{
       }
 
       const privacyTrigger = document.getElementById("privacyTrigger");
-      if (privacyTrigger) {
-        privacyTrigger.addEventListener("click", (e) => {
-          e.preventDefault();
-          openModal("privacyModal");
-        });
-      }
+      if (privacyTrigger) privacyTrigger.addEventListener("click", (e) => { e.preventDefault(); openModal("privacyModal"); });
 
       document.addEventListener("click", (e) => {
         const t = e.target;
         if (!(t instanceof Element)) return;
-
         const closeId = t.getAttribute("data-close");
         if (closeId) closeModal(closeId);
-
-        if (t.classList.contains("fa-times") && t.getAttribute("data-close")) {
-          closeModal(t.getAttribute("data-close"));
-        }
+        if (t.classList.contains("fa-times") && t.getAttribute("data-close")) closeModal(t.getAttribute("data-close"));
       });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal("privacyModal");
-          closeModal("successModal");
-        }
-      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeModal("privacyModal"); closeModal("successModal"); } });
 
       const form = document.getElementById("inquiryForm");
       const submitBtn = document.getElementById("submitBtn");
@@ -2041,35 +1538,21 @@ header.scrolled .brand-wordmark{
         statusBox.classList.remove("error", "ok");
         if (type) statusBox.classList.add(type);
         statusBox.classList.add("show");
-
         const iconEl = statusBox.querySelector(".icon i");
-        if (iconEl) {
-          iconEl.className = "fa-solid " + (type === "error" ? "fa-triangle-exclamation" : type === "ok" ? "fa-check" : "fa-circle-info");
-        }
+        if (iconEl) iconEl.className = "fa-solid " + (type === "error" ? "fa-triangle-exclamation" : type === "ok" ? "fa-check" : "fa-circle-info");
       }
-
-      function hideStatus() {
-        if (!statusBox) return;
-        statusBox.classList.remove("show", "error", "ok");
-      }
-
+      function hideStatus() { if (!statusBox) return; statusBox.classList.remove("show", "error", "ok"); }
       function setSending(isSending) {
         if (!submitBtn) return;
         submitBtn.disabled = isSending;
         submitBtn.textContent = isSending ? "Sending..." : "Submit Acquisition Request";
       }
-
-      function isValidEmail(v) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
-      }
+      function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim()); }
 
       if (form) {
         form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          hideStatus();
-
+          e.preventDefault(); hideStatus();
           const fd = new FormData(form);
-
           const bot = String(fd.get("bot-field") || "").trim();
           if (bot) return;
 
@@ -2078,127 +1561,58 @@ header.scrolled .brand-wordmark{
           const company = String(fd.get("company") || "").trim();
           const message = String(fd.get("message") || "").trim();
           const ndaFirst = !!fd.get("nda_first");
-
           const accessKey = String(fd.get("access_key") || "").trim();
-          if (!accessKey || accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
-            showStatus("error", "Form is not configured yet. Please set the Web3Forms access key, or email invest@mokh.ai.");
-            return;
-          }
 
-          if (!name || !isValidEmail(email) || !message) {
-            showStatus("error", "Please double-check the required fields (Name, valid Email, and Message).");
-            return;
-          }
-
-          setSending(true);
-          showStatus("", "Submitting securely…");
+          if (!name || !isValidEmail(email) || !message) { showStatus("error", "Please double-check the required fields."); return; }
+          setSending(true); showStatus("", "Submitting securely…");
 
           const payload = {
             access_key: accessKey,
             subject: `mokh.ai inquiry — ${name}${company ? " (" + company + ")" : ""}`,
-            from_name: name,
-            replyto: email,
-            to: "invest@mokh.ai",
-            name,
-            email,
-            company,
-            message,
-            nda_first: ndaFirst ? "Yes" : "No"
+            from_name: name, replyto: email, to: "invest@mokh.ai",
+            name, email, company, message, nda_first: ndaFirst ? "Yes" : "No"
           };
 
           try {
             const res = await fetch("https://api.web3forms.com/submit", {
-              method: "POST",
-              headers: { "Content-Type": "application/json", "Accept": "application/json" },
+              method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
               body: JSON.stringify(payload)
             });
-
             const data = await res.json().catch(() => null);
-
             if (!res.ok || !data || data.success !== true) {
-              const hint = (data && (data.message || data.error)) ? String(data.message || data.error) : "";
-              showStatus("error", "Sorry — we couldn’t send your inquiry right now. Please try again in a moment, or email invest@mokh.ai." + (hint ? " (" + hint + ")" : ""));
-              setSending(false);
-              return;
+              showStatus("error", "Couldn't send. Please try again later.");
+              setSending(false); return;
             }
-
             if (ndaPill) ndaPill.style.display = ndaFirst ? "inline-flex" : "none";
             openModal("successModal");
-
-            form.reset();
-            hideStatus();
+            form.reset(); hideStatus();
           } catch (err) {
-            showStatus("error", "Network issue detected. Please try again, or email invest@mokh.ai.");
-          } finally {
-            setSending(false);
-          }
+            showStatus("error", "Network issue detected. Please email invest@mokh.ai.");
+          } finally { setSending(false); }
         });
       }
     })();
   </script>
 
-  <!-- ScrollReveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
     (function () {
       const prefersReduced = window.matchMedia && window.matchMedia("prefers-reduced-motion: reduce").matches;
       if (prefersReduced) return;
       if (typeof window.ScrollReveal !== "function") return;
-
-      const sr = ScrollReveal({
-      distance: "12px",
-      duration: 1200,
-      distance: "10px",
-      interval: 140,
-      viewFactor: 0.5,
-      cleanup: true
-   });
-sr.reveal(".transfer-assurance-bar", { 
-  origin: "bottom", 
-  distance: "30px", 
-  duration: 1500, 
-  delay: 300, 
-  viewFactor: 0.4 
-});
+      const sr = ScrollReveal({ distance: "12px", duration: 1200, interval: 140, viewFactor: 0.3, cleanup: true });
+      sr.reveal(".transfer-assurance-bar", { origin: "bottom", distance: "30px", duration: 1500, delay: 300 });
       sr.reveal("#main-header", { origin: "top", distance: "30px", duration: 1200, interval: 0 });
       sr.reveal(".hero-label, .hero h1, .hero-tagline, .hero-cta-box", { origin: "bottom" });
-
       sr.reveal(".identity-header", { origin: "bottom" });
       sr.reveal(".id-card", { origin: "bottom", interval: 80 });
-
       sr.reveal(".value-card", { origin: "bottom", interval: 80 });
-
       sr.reveal(".context-rail", { origin: "bottom" });
-
       sr.reveal(".steps-header", { origin: "bottom" });
-      sr.reveal(".id-card:nth-child(odd)", { origin: "left", interval: 120 });
-      sr.reveal(".id-card:nth-child(even)", { origin: "right", interval: 120 });
-
-
       sr.reveal(".ecosystem", { origin: "bottom" });
       sr.reveal(".inquiry-section .form-card", { origin: "bottom" });
-
       sr.reveal("footer", { origin: "bottom", distance: "10px", duration: 500 });
     })();
   </script>
-
-
-<script>
-  (function () {
-    const kicker = document.querySelector(".hero-kicker");
-    if (!kicker) return;
-
-    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function onScroll() {
-      if (prefersReduced) return;
-      kicker.classList.toggle("is-faded", window.scrollY > 80);
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
-
 </body>
 </html>

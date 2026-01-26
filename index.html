@@ -610,27 +610,23 @@ header .brand-wordmark .dot{
   justify-content: center;
   background: rgba(34, 197, 94, 0.05);
   border: 1px solid rgba(34, 197, 94, 0.2);
-  color: #4ade80; /* لون أخضر فاتح */
+  color: #4ade80;
   font-size: 28px;
   box-shadow: 0 0 30px rgba(34, 197, 94, 0.1) inset;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ⛔ إيقاف الحركة نهائياً */
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
 }
 
-@keyframes shieldPulseSoft {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow:
-      0 0 22px rgba(34, 197, 94, 0.18) inset,
-      0 0 0 rgba(34, 197, 94, 0);
-  }
-  50% {
-    transform: scale(1.035);
-    box-shadow:
-      0 0 36px rgba(34, 197, 94, 0.32) inset,
-      0 0 22px rgba(34, 197, 94, 0.25);
-  }
-}
 
+.assurance-inner:hover .assurance-icon-box {
+  transform: scale(1.1) rotate(-5deg);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #fff;
+  background: rgba(34, 197, 94, 0.15);
+}
 
 /* 4. النصوص */
 .assurance-text h4 {
@@ -710,32 +706,32 @@ header .brand-wordmark .dot{
 /* =========================================================
    Responsive (Mobile)
    ========================================================= */
-@media (max-width: 600px) {
-  /* خلي صف الأيقونة والنص مرن وواضح */
-  .assurance-inner{
-    padding: 26px 22px;
-    gap: 18px;
+@media (max-width: 768px) {
+  .assurance-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 25px;
+    gap: 25px;
   }
 
-  /* مهم: امنع الانكماش داخل flex */
-  .assurance-icon-box{
-    flex: 0 0 auto;
-    width: 86px;
-    height: 86px;
-    border-radius: 22px;
-    font-size: 34px;
-    box-shadow: 0 0 34px rgba(34, 197, 94, 0.16) inset;
+  .assurance-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .assurance-icon-box {
+    margin: 0 auto;
   }
 
-  /* لو تبغى النص يطلع متوازن جنب الأيقونة */
-  .assurance-text h4{
-    font-size: 1.15rem;
+  .btn-escrow-premium {
+    width: 100%;
+    justify-content: center;
   }
-  .assurance-text p{
-    font-size: 0.95rem;
+  
+  /* في الموبايل، اجعل اللمعة تتحرك تلقائياً */
+  .btn-shine {
+    animation: autoShine 3s infinite;
   }
-}
-
   
   @keyframes autoShine {
     0% { left: -100%; }
@@ -933,9 +929,7 @@ header .brand-wordmark .dot{
       </div>
 
       <div class="header-controls">
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">
-          <i class="fa-solid fa-moon"></i>
-        </button>
+        
         <a href="#inquiry" class="acquisition-badge" aria-label="Available for Acquisition">
           <i class="fa-solid fa-circle acq-icon"></i>
           <span class="acq-text">Acquisition Open</span>

@@ -272,6 +272,8 @@ header .brand-wordmark .dot{
       line-height: 1.05; margin: 0 auto 14px;
       color: var(--text-main);
       text-shadow: 0 0 30px rgba(0, 0, 0, .35);
+      margin-top: 20px !important;    /* إضافة مساحة فوق الشعار */
+      margin-bottom: 15px !important
     }
     /* FIX: Hero Dot Rotation */
     .hero-wordmark .dot {
@@ -925,6 +927,20 @@ header .brand-wordmark .dot{
       .modal-card { padding: 25px 20px; width: 95%; }
       .success-card { width: 92vw; padding: 22px 18px; }
     }
+    @media (max-width: 640px) {
+    /* ... الأكواد الموجودة مسبقاً ... */
+
+    /* أضف هذا الكود الجديد هنا */
+    .scarcity-line {
+      white-space: nowrap;       /* يجبر النص على البقاء في سطر واحد */
+      font-size: 0.55rem;        /* تصغير الخط ليناسب الشاشة */
+      letter-spacing: 0.5px;     /* تقليل المسافات بين الحروف */
+      width: 100%;               /* ضمان استغلال العرض الكامل */
+      overflow: hidden;          /* إخفاء أي زوائد إن وجدت */
+    }
+
+    /* ... باقي الأكواد ... */
+  }
   </style>
 </head>
 
@@ -948,33 +964,36 @@ header .brand-wordmark .dot{
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-box">
-        <p class="hero-eyebrow">The Cognitive Core for AI Infrastructure</p>
-        <h1 class="hero-wordmark">mokh<span class="dot">.</span>ai</h1>
-        <p class="hero-tagline">
-          Own the semantic root of intelligence.<br>
-          <strong style="color:var(--text-main);">MOKH</strong> (<span class="ar-inline" lang="ar" dir="rtl">مخ</span>) implies <strong>Brain</strong>.<br>
-          The definitive 4-letter asset for the next generation of neural computing.
-        </p>
+  <section class="hero">
+  <div class="hero-box">
+    <p class="hero-eyebrow">The Cognitive Core for AI Infrastructure</p>
+    <h1 class="hero-wordmark">mokh<span class="dot">.</span>ai</h1>
+    
+    <p class="hero-tagline">
+      Own the semantic root of intelligence.<br>
+      <strong style="color:var(--text-main);">MOKH</strong> (<span class="ar-inline" lang="ar" dir="rtl">مخ</span>) means <strong>Brain</strong>.
+    </p>
 
-        <div class="hero-cta-box">
-          <a href="#inquiry" class="btn-primary">Review Acquisition Terms</a>
-          <div class="tech-icons" aria-hidden="true">
-            <i class="fa-solid fa-microchip"></i>
-            <i class="fa-solid fa-brain"></i>
-            <i class="fa-solid fa-network-wired"></i>
-          </div>
-          <div class="asset-signals">
-            <div class="scarcity-line">Premium LLL.ai • Institutional Grade • Immediate Transfer</div>
-          </div>
-          <div class="trust-row">
-            <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Secured via Escrow.com</span>
-            <span class="trust-pill"><i class="fa-solid fa-file-contract"></i> Strict NDA Protocols</span>
-          </div>
-        </div>
+    <div class="hero-cta-box">
+      <a href="#inquiry" class="btn-primary">Review Acquisition Terms</a>
+      
+      <div class="tech-icons" aria-hidden="true">
+        <i class="fa-solid fa-microchip"></i>
+        <i class="fa-solid fa-brain"></i>
+        <i class="fa-solid fa-network-wired"></i>
       </div>
-    </section>
+
+      <div class="asset-signals">
+        <div class="scarcity-line">Premium LLL.ai • Institutional Grade • Immediate Transfer</div>
+      </div>
+
+      <div class="trust-row">
+        <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i>  Escrow supported</span>
+        <span class="trust-pill"><i class="fa-solid fa-file-contract"></i> Strict NDA Protocols</span>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="identity-section" id="meaning">
       <div class="identity-header">
